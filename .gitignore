@@ -1,0 +1,5 @@
+# Game projects have their own repositories.
+# Never include game source code in the public website repository.
+games/# Game projects have their own repositories.
+# Never include game source code in the public website repository.
+games/
