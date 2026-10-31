@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#35251f">
+
+  <meta
+    name="description"
+    content="{{ description | default('Oddly Wired Studio creates curious games, clever software, and wonderfully unusual digital experiences.') }}"
+  >
+
+  <title>
+    {% if title %}{{ title }} | {% endif %}Oddly Wired Studio
+  </title>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Oddly Wired Studio homepage">
+      ODDLY <span>WIRED</span> STUDIO
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#what-we-make">What We Make</a>
+      <a href="/journal/">Oddity Ledger</a>
+      <a href="/#connect">Connect</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="copyright-year">2026</span>
+      Oddly Wired Studio. Made with curiosity. ⚙️
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("copyright-year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
