@@ -21,6 +21,7 @@
   --line: #dec5a8;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   color: var(--ink);
@@ -81,7 +82,7 @@ main { overflow: hidden; }
   font-weight: 900;
   color: var(--copper);
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: Georgia, serif;
   line-height: 1.15;
 }
@@ -132,6 +133,11 @@ h1 em {
   font-size: 1.75rem;
   margin: 8px 0 16px;
 }
+.entries {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
 .notebook {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -150,12 +156,22 @@ h1 em {
   font-size: 1.6rem;
 }
 .notebook h3 {
-  font-size: 1.35rem;
-  margin: 7px 0;
+  font-size: 1.45rem;
+  margin: 7px 25px 12px 0;
+}
+.notebook h4 {
+  font-size: 1.22rem;
+  margin: 28px 0 10px;
+  color: var(--copper);
 }
 .notebook p {
-  margin: 8px 0 0;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+.notebook p:last-child { margin-bottom: 0; }
+.notebook .announcement-text {
   color: var(--muted);
+  margin: 8px 0 0;
 }
 .date {
   font-size: .78rem;
@@ -163,6 +179,14 @@ h1 em {
   color: var(--copper);
   letter-spacing: .07em;
   text-transform: uppercase;
+}
+.entry-signoff {
+  border-top: 1px dashed var(--line);
+  margin-top: 25px;
+  padding-top: 18px;
+}
+.entry-signoff strong {
+  color: var(--purple);
 }
 .aside {
   align-self: start;
@@ -248,6 +272,7 @@ footer {
 </style>
 </head>
 <body>
+
 <header>
   <a class="brand" href="/">
     ODDLY <span>WIRED</span> STUDIO
@@ -331,18 +356,172 @@ footer {
       <h2 class="journal-heading" id="latest">
         Latest Entries
       </h2>
-      <article class="notebook">
-        <div class="date">
-          Workshop bulletin · Ledger opening
-        </div>
-        <h3>The Ink Is Still Drying</h3>
-        <p>
-          The Oddity Ledger is ready, but the first entry
-          hasn't been published yet. Soon this space
-          will hold real notes on the messy, fascinating
-          process of learning to build games.
-        </p>
-      </article>
+
+      <div class="entries">
+
+        <!-- NEWEST ENTRY FIRST -->
+        <article class="notebook" id="entry-001">
+          <div class="date">
+            Ledger Entry No. 001 · The Beginning
+          </div>
+          <h3>So, Apparently We're Making Games Now</h3>
+
+          <p>
+            There comes a point when you look at all the things
+            you've learned to build and think,
+            <em>Okay, but what if I made something just because
+            it would be fun?</em>
+          </p>
+
+          <p>And that's how we ended up here.</p>
+
+          <p>
+            Welcome to <strong>The Oddity Ledger</strong>,
+            the official record of experiments, discoveries,
+            questionable decisions, and occasional moments of
+            brilliance happening behind the doors of Oddly
+            Wired Studio.
+          </p>
+
+          <p>
+            I'm a systems thinker and a builder. My world has
+            long revolved around understanding how things work,
+            figuring out why they don't, and creating something
+            better. Business processes, software, automation,
+            digital tools. Give me a complicated problem and
+            I'll probably start mentally taking it apart before
+            you've finished explaining it.
+          </p>
+
+          <p>But games?</p>
+
+          <p>
+            Games introduce a whole different kind of challenge.
+          </p>
+
+          <p>
+            It's not enough for something to work. It needs to
+            <em>feel</em> right. It needs to be interesting.
+            It needs to make somebody want to keep clicking,
+            exploring, experimenting, or trying just one
+            more time.
+          </p>
+
+          <p>And I find that fascinating.</p>
+
+          <h4>Same Brain. Different Playground.</h4>
+
+          <p>
+            One of the things I'm discovering is how much
+            game development overlaps with the work I've
+            already been doing.
+          </p>
+
+          <p>
+            Systems. Logic. Interactions. Feedback loops.
+            User experience. Problem solving.
+          </p>
+
+          <p>All familiar territory.</p>
+
+          <p>
+            Except now those systems might determine whether
+            a player discovers something delightful instead
+            of whether a business process runs efficiently.
+          </p>
+
+          <p>
+            And sometimes the most technically correct
+            solution isn't the most entertaining one.
+          </p>
+
+          <p>That's a fun problem to have.</p>
+
+          <h4>What's Going in This Ledger?</h4>
+
+          <p>
+            I want this to be an actual record of the process,
+            not a carefully polished collection of victories
+            after everything has already worked out.
+          </p>
+
+          <p>
+            There will be experiments that succeed, ideas
+            that change halfway through, lessons I didn't
+            know I needed, and probably a fair amount of
+            staring at the screen wondering why something
+            that worked perfectly five minutes ago has
+            suddenly developed an attitude.
+          </p>
+
+          <p>
+            I'll talk about what I'm learning, how I'm thinking
+            through problems, and the creative decisions
+            that shape the work.
+          </p>
+
+          <p>
+            Some things will stay behind the workshop doors
+            until they're ready. Not every invention needs
+            an audience while it's still held together with
+            digital duct tape and optimism.
+          </p>
+
+          <p>
+            But the journey? There's plenty worth sharing.
+          </p>
+
+          <h4>Consider This the First Page</h4>
+
+          <p>
+            Oddly Wired Studio is a place for curiosity,
+            creativity, and building things that don't
+            necessarily fit neatly into a box.
+          </p>
+
+          <p>
+            The Oddity Ledger is where I'll document
+            what happens along the way.
+          </p>
+
+          <p>
+            I don't know exactly what every page
+            will contain yet.
+          </p>
+
+          <p>I do know there will be tinkering.</p>
+
+          <p>There will be learning.</p>
+
+          <p>
+            There will almost certainly be shenanigans.
+          </p>
+
+          <p>And if something gets a little weird?</p>
+
+          <p>Well, look at the name on the door.</p>
+
+          <div class="entry-signoff">
+            <p><em>Signed,</em></p>
+            <p><strong>The Head Goblin in Charge ⚙️</strong></p>
+          </div>
+        </article>
+
+        <!-- ORIGINAL ANNOUNCEMENT PRESERVED -->
+        <article class="notebook" id="opening-announcement">
+          <div class="date">
+            Workshop bulletin · Ledger opening
+          </div>
+          <h3>The Ink Is Still Drying</h3>
+          <p class="announcement-text">
+            The Oddity Ledger is ready, but the first entry
+            hasn't been published yet. Soon this space
+            will hold real notes on the messy, fascinating
+            process of learning to build games.
+          </p>
+        </article>
+
+      </div>
     </section>
 
     <aside class="aside">
