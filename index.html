@@ -2,732 +2,643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#35251f">
-  <meta name="description" content="Oddly Wired Studio creates imaginative games, clever software, digital products, and interactive experiences.">
-  <title>Oddly Wired Studio | Imagination Meets Innovation</title>
-
-  <style>
-    :root {
-      --ivory: #f7ebdd;
-      --paper: #fff9f0;
-      --sand: #efdfca;
-      --espresso: #35251f;
-      --muted: #65544b;
-      --copper: #d87932;
-      --copper-dark: #a84d20;
-      --gold: #f4b544;
-      --purple: #6535a0;
-      --teal: #1f7779;
-      --line: #e2ccb3;
-      --shadow: rgba(53, 37, 31, .11);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--ivory);
-      color: var(--espresso);
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      line-height: 1.65;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible {
-      outline: 3px solid var(--purple);
-      outline-offset: 4px;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 20px max(5vw, 22px);
-      background: var(--paper);
-      border-bottom: 2px solid var(--gold);
-      box-shadow: 0 3px 15px var(--shadow);
-    }
-
-    .brand {
-      font-size: 1.12rem;
-      font-weight: 900;
-      letter-spacing: .04em;
-      text-decoration: none;
-    }
-
-    .brand span {
-      color: var(--copper-dark);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 26px;
-    }
-
-    nav a {
-      font-size: .94rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: var(--purple);
-    }
-
-    .hero {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 590px;
-      overflow: hidden;
-      padding: 90px 24px;
-      text-align: center;
-      background:
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(244, 181, 68, .32),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 8% 85%,
-          rgba(101, 53, 160, .13),
-          transparent 35%
-        ),
-        linear-gradient(
-          120deg,
-          #fff4df 0%,
-          #f6d5a7 48%,
-          #f8e6d0 100%
-        );
-      border-bottom: 5px solid var(--copper);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(
-          rgba(168, 77, 32, .28) 1.5px,
-          transparent 1.5px
-        );
-      background-size: 36px 36px;
-      opacity: .33;
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      right: -140px;
-      bottom: -160px;
-      border: 38px solid rgba(216, 121, 50, .15);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 850px;
-    }
-
-    .eyebrow {
-      color: var(--copper-dark);
-      font-size: .8rem;
-      font-weight: 900;
-      letter-spacing: .19em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
-      margin-top: 0;
-    }
-
-    h1, h2 {
-      font-family: Georgia, serif;
-    }
-
-    h1 {
-      margin: 24px 0;
-      font-size: clamp(3.7rem, 8vw, 6.8rem);
-      letter-spacing: -.045em;
-      color: var(--espresso);
-    }
-
-    h1 span {
-      color: var(--copper-dark);
-    }
-
-    .hero-description {
-      max-width: 670px;
-      margin: 0 auto 36px;
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: #49372d;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 31px;
-      border-radius: 10px;
-      background: var(--copper);
-      color: #21170f;
-      font-weight: 900;
-      text-decoration: none;
-      box-shadow: 0 7px 0 #a84d20;
-      transition: transform .15s, box-shadow .15s;
-    }
-
-    .button:hover {
-      transform: translateY(3px);
-      box-shadow: 0 4px 0 #a84d20;
-      background: var(--gold);
-    }
-
-    .section {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 86px 24px;
-    }
-
-    .section-title {
-      margin: 15px 0 26px;
-      font-size: clamp(2.1rem, 4vw, 3rem);
-      letter-spacing: -.025em;
-    }
-
-    .intro {
-      max-width: 800px;
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
-
-    .about-section {
-      background: var(--paper);
-    }
-
-    .about-section .section {
-      border-left: 5px solid var(--gold);
-      padding-left: 36px;
-    }
-
-    .work-section {
-      background:
-        linear-gradient(
-          180deg,
-          #f4e6d4,
-          #f9f0e5
-        );
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 45px;
-    }
-
-    .tile {
-      padding: 31px;
-      border-radius: 16px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-top: 6px solid var(--copper);
-      box-shadow: 0 9px 24px var(--shadow);
-      transition: transform .2s;
-    }
-
-    .tile:nth-child(2) {
-      border-top-color: var(--purple);
-    }
-
-    .tile:nth-child(3) {
-      border-top-color: var(--teal);
-    }
-
-    .tile:hover {
-      transform: translateY(-5px);
-    }
-
-    .tile-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 64px;
-      height: 64px;
-      margin-bottom: 22px;
-      border-radius: 14px;
-      background: #fae2c5;
-      font-size: 2rem;
-    }
-
-    .tile:nth-child(2) .tile-icon {
-      background: #eee2fb;
-    }
-
-    .tile:nth-child(3) .tile-icon {
-      background: #d9eeee;
-    }
-
-    .tile h3 {
-      font-family: Georgia, serif;
-      font-size: 1.5rem;
-      margin-bottom: 13px;
-    }
-
-    .tile p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .coming {
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      color: #fff6e8;
-      background:
-        radial-gradient(
-          circle at 90% 85%,
-          rgba(244, 181, 68, .26),
-          transparent 30%
-        ),
-        linear-gradient(
-          115deg,
-          #a84d20 0%,
-          #c76a2c 55%,
-          #d88b40 100%
-        );
-    }
-
-    .coming .eyebrow {
-      color: #fff0b9;
-    }
-
-    .coming .section {
-      padding-top: 88px;
-      padding-bottom: 88px;
-    }
-
-    .coming p {
-      max-width: 650px;
-      margin: 0 auto;
-      color: #fff7ec;
-      font-size: 1.08rem;
-    }
-
-    .connect-section {
-      background:
-        radial-gradient(
-          circle at 85% 25%,
-          rgba(31, 119, 121, .12),
-          transparent 35%
-        ),
-        var(--ivory);
-    }
-
-    .connect {
-      text-align: center;
-    }
-
-    .connect .eyebrow {
-      color: var(--purple);
-    }
-
-    .connect p {
-      max-width: 670px;
-      margin: 0 auto 34px;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    /* SOCIAL ACCOUNTS */
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      max-width: 920px;
-      margin: 38px auto 0;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 11px;
-      min-height: 52px;
-      padding: 12px 20px;
-      background: var(--paper);
-      border: 2px solid var(--line);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px var(--shadow);
-      color: var(--espresso);
-      text-decoration: none;
-      font-size: .96rem;
-      font-weight: 800;
-      transition:
-        transform .2s,
-        border-color .2s,
-        box-shadow .2s;
-    }
-
-    .social-link:hover {
-      transform: translateY(-3px);
-      border-color: var(--copper);
-      box-shadow: 0 8px 18px var(--shadow);
-    }
-
-    .social-link svg {
-      width: 21px;
-      height: 21px;
-      flex-shrink: 0;
-    }
-
-    .social-link:nth-child(2) {
-      border-bottom: 4px solid var(--purple);
-    }
-
-    .social-link:nth-child(3) {
-      border-bottom: 4px solid var(--copper);
-    }
-
-    .social-link:nth-child(4) {
-      border-bottom: 4px solid var(--teal);
-    }
-
-    .social-link:nth-child(5) {
-      border-bottom: 4px solid var(--gold);
-    }
-
-    .social-note {
-      margin-top: 32px;
-      font-size: .91rem;
-    }
-
-    footer {
-      padding: 28px 24px;
-      background: var(--espresso);
-      color: #f5e7d5;
-      text-align: center;
-      font-size: .88rem;
-    }
-
-    @media (max-width: 750px) {
-      .site-header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 18px;
-      }
-
-      .hero {
-        min-height: 520px;
-        padding: 80px 22px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 65px 22px;
-      }
-
-      .about-section .section {
-        border-left: 0;
-        padding-left: 22px;
-      }
-
-      .social-links {
-        gap: 12px;
-      }
-
-      .social-link {
-        flex: 1 1 135px;
-        max-width: 220px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .button,
-      .tile,
-      .social-link {
-        transition: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#35251f">
+<meta name="description" content="Oddly Wired Studio is an independent creative technology studio making imaginative games, clever software, and curious digital experiences.">
+<title>Oddly Wired Studio | Curious Things Are Happening</title>
+<style>
+:root {
+  --cream:#f7ebdd;
+  --paper:#fff9f0;
+  --sand:#efdfca;
+  --ink:#35251f;
+  --muted:#65544b;
+  --orange:#d87932;
+  --copper:#a84d20;
+  --gold:#f4b544;
+  --purple:#6535a0;
+  --teal:#1f7779;
+  --line:#dfc4a5;
+  --shadow:rgba(53,37,31,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--cream);
+  font:16px/1.65 "Trebuchet MS",Arial,sans-serif;
+}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--purple);outline-offset:4px}
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px max(5vw,22px);
+  background:var(--paper);
+  border-bottom:3px solid var(--gold);
+  box-shadow:0 3px 15px var(--shadow);
+}
+.brand{
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:.04em;
+  font-size:1.12rem;
+}
+.brand span{color:var(--copper)}
+nav{display:flex;flex-wrap:wrap;gap:22px}
+nav a{text-decoration:none;font-size:.93rem;font-weight:800}
+nav a:hover{color:var(--purple)}
+.eyebrow{
+  color:var(--copper);
+  font-size:.76rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+}
+h1,h2,h3{
+  font-family:Georgia,serif;
+  line-height:1.15;
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 90% 15%,#f4b54455,transparent 30%),
+    radial-gradient(circle at 7% 85%,#6535a01b,transparent 35%),
+    linear-gradient(120deg,#fff3df,#f4d4a7 60%,#f8e6d0);
+  border-bottom:5px solid var(--orange);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(#a84d2030 1.4px,transparent 1.4px);
+  background-size:33px 33px;
+  opacity:.4;
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative;
+  max-width:1150px;
+  margin:auto;
+  padding:65px 24px 70px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:35px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(2.8rem,5.4vw,5rem);
+  letter-spacing:-.045em;
+  margin:16px 0;
+}
+.hero h1 em{
+  color:var(--copper);
+  font-style:normal;
+}
+.hero p{
+  font-size:1.12rem;
+  max-width:580px;
+  margin:0 0 25px;
+  color:#49372d;
+}
+.actions{display:flex;gap:13px;flex-wrap:wrap}
+.button{
+  display:inline-block;
+  text-decoration:none;
+  font-weight:900;
+  padding:12px 23px;
+  border-radius:9px;
+  background:var(--orange);
+  color:#21170f;
+  border:2px solid var(--copper);
+  box-shadow:0 5px 0 var(--copper);
+  transition:transform .15s,box-shadow .15s;
+}
+.button:hover{
+  transform:translateY(2px);
+  box-shadow:0 3px 0 var(--copper);
+}
+.button.secondary{
+  background:var(--paper);
+  border-color:var(--purple);
+  box-shadow:0 5px 0 var(--purple);
+}
+.button.secondary:hover{box-shadow:0 3px 0 var(--purple)}
+.hero-art{
+  width:100%;
+  max-width:430px;
+  justify-self:center;
+  filter:drop-shadow(0 12px 12px #35251f20);
+}
+.scribble{
+  font-family:Georgia,serif;
+  font-style:italic;
+  color:var(--purple);
+}
+.section{
+  max-width:1150px;
+  margin:auto;
+  padding:70px 24px;
+}
+.section-title{
+  font-size:clamp(2rem,3.7vw,3rem);
+  margin:12px 0 22px;
+  letter-spacing:-.025em;
+}
+.intro{
+  max-width:800px;
+  font-size:1.08rem;
+  color:var(--muted);
+}
+.about-wrap{background:var(--paper)}
+.about-layout{
+  display:grid;
+  grid-template-columns:1.5fr .7fr;
+  gap:35px;
+  align-items:center;
+}
+.sticky-note{
+  position:relative;
+  padding:28px;
+  background:#f9e2a8;
+  border:1px solid #e2bd70;
+  border-radius:4px;
+  transform:rotate(3deg);
+  box-shadow:7px 9px 0 #e7d6bb;
+}
+.sticky-note::before{
+  content:"";
+  position:absolute;
+  top:-13px;
+  left:42%;
+  width:75px;
+  height:25px;
+  background:#ffffff80;
+  transform:rotate(-7deg);
+}
+.sticky-note strong{
+  font-family:Georgia,serif;
+  font-size:1.3rem;
+}
+.sticky-note p{margin-bottom:0}
+.work-wrap{
+  background:linear-gradient(180deg,#f4e6d4,#f9f0e5);
+}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin-top:34px;
+}
+.work-card{
+  position:relative;
+  padding:30px;
+  border:1px solid var(--line);
+  border-top:6px solid var(--orange);
+  border-radius:13px;
+  background:var(--paper);
+  box-shadow:5px 7px 0 #e5ceb1;
+  transition:transform .2s;
+}
+.work-card:nth-child(2){border-top-color:var(--purple)}
+.work-card:nth-child(3){border-top-color:var(--teal)}
+.work-card:hover{transform:translateY(-5px) rotate(-1deg)}
+.work-icon{
+  display:grid;
+  place-items:center;
+  width:65px;
+  height:65px;
+  border-radius:17px;
+  background:#fae2c5;
+  font-size:2rem;
+  transform:rotate(-7deg);
+}
+.work-card:nth-child(2) .work-icon{background:#eee2fb}
+.work-card:nth-child(3) .work-icon{background:#d9eeee}
+.work-card h3{font-size:1.4rem;margin:22px 0 10px}
+.work-card p{color:var(--muted);margin:0}
+.ledger-wrap{
+  background:#e9d5bc;
+  border-top:2px dashed #c79d70;
+  border-bottom:2px dashed #c79d70;
+}
+.ledger-layout{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:35px;
+}
+.ledger-card{
+  position:relative;
+  padding:28px 28px 28px 36px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:9px solid var(--orange);
+  border-radius:7px;
+  box-shadow:7px 9px 0 #d6b794;
+  transform:rotate(2deg);
+}
+.ledger-card::after{
+  content:"✦";
+  position:absolute;
+  top:12px;
+  right:20px;
+  font-size:2rem;
+  color:var(--gold);
+}
+.ledger-card .mini{
+  color:var(--copper);
+  font-size:.76rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.ledger-card h3{font-size:1.55rem;margin:12px 0}
+.ledger-card p{color:var(--muted)}
+.ledger-card a{font-weight:900;color:var(--purple)}
+.coming{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  color:#fff6e8;
+  background:
+    radial-gradient(circle at 90% 85%,#f4b54455,transparent 35%),
+    linear-gradient(115deg,#8f401f,#c76a2c 65%,#d88b40);
+}
+.coming .section{padding-top:65px;padding-bottom:65px}
+.coming .eyebrow{color:#fff0b9}
+.coming p{
+  max-width:670px;
+  margin:0 auto;
+  font-size:1.08rem;
+}
+.coming .section-title{color:#fff8ed}
+.connect-wrap{
+  background:
+    radial-gradient(circle at 85% 25%,#1f77791a,transparent 35%),
+    var(--cream);
+}
+.connect{text-align:center}
+.connect .eyebrow{color:var(--purple)}
+.connect>p{
+  max-width:680px;
+  margin:0 auto 30px;
+  color:var(--muted);
+  font-size:1.08rem;
+}
+.social-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:13px;
+  max-width:920px;
+  margin:30px auto 0;
+}
+.social-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:52px;
+  padding:12px 19px;
+  background:var(--paper);
+  border:2px solid var(--line);
+  border-bottom:4px solid var(--orange);
+  border-radius:11px;
+  box-shadow:0 4px 12px var(--shadow);
+  font-weight:800;
+  text-decoration:none;
+  transition:transform .2s,border-color .2s;
+}
+.social-link:nth-child(2){border-bottom-color:var(--purple)}
+.social-link:nth-child(4){border-bottom-color:var(--teal)}
+.social-link:nth-child(5){border-bottom-color:var(--gold)}
+.social-link:hover{
+  transform:translateY(-3px);
+  border-color:var(--copper);
+}
+.social-link svg{width:21px;height:21px;flex-shrink:0}
+.social-note{margin-top:25px!important;font-size:.91rem!important}
+footer{
+  background:var(--ink);
+  color:#f5e7d5;
+  text-align:center;
+  padding:25px 20px;
+  font-size:.88rem;
+}
+@media(max-width:800px){
+  .site-header{flex-direction:column;text-align:center}
+  nav{justify-content:center;gap:14px}
+  .hero-inner{
+    grid-template-columns:1fr;
+    padding:43px 22px 55px;
+  }
+  .hero-art{max-width:280px;grid-row:1}
+  .about-layout,.ledger-layout{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr}
+  .section{padding:55px 22px}
+  .sticky-note{max-width:370px;margin:10px auto}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .button,.work-card,.social-link{transition:none}
+}
+</style>
 </head>
-
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home">
-      ODDLY <span>WIRED</span> STUDIO
-    </a>
 
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#what-we-make">What We Make</a>
-      <a href="#connect">Connect</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="brand" href="#home">ODDLY <span>WIRED</span> STUDIO</a>
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#what-we-make">What We Make</a>
+    <a href="/journal/">Oddity Ledger</a>
+    <a href="#connect">Connect</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="eyebrow">
-          Independent Creative Technology Studio
-        </div>
-
-        <h1>
-          Oddly <span>Wired</span><br>
-          Studio
-        </h1>
-
-        <p class="hero-description">
-          A little unconventional. A lot imaginative.
-          Creating games, software, and digital experiences
-          where curiosity meets clever technology.
+<main>
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">✦ Independent Creative Technology Studio ✦</div>
+        <h1>Wonderfully <em>Odd.</em><br>Intentionally Wired.</h1>
+        <p>
+          Welcome to Oddly Wired Studio, where unusual ideas
+          become games, clever software, and digital experiences.
+          We take curiosity seriously. Ourselves? Not always.
         </p>
+        <div class="actions">
+          <a class="button" href="#about">Enter the Workshop ⚙️</a>
+          <a class="button secondary" href="/journal/">Read the Oddity Ledger</a>
+        </div>
+      </div>
 
-        <a class="button" href="#about">
-          Step Inside
+      <svg class="hero-art" viewBox="0 0 450 390"
+        xmlns="http://www.w3.org/2000/svg" role="img"
+        aria-label="Whimsical workshop illustration with gears, a glowing lightbulb, notebook, and creative tools">
+        <ellipse cx="225" cy="356" rx="176" ry="19" fill="#9b6b4430"/>
+        <g transform="translate(318 92)">
+          <circle r="55" fill="#d87932" stroke="#35251f"
+            stroke-width="8" stroke-dasharray="18 8"/>
+          <circle r="32" fill="#fff1d7" stroke="#a84d20"
+            stroke-width="9"/>
+          <circle r="10" fill="#6535a0"/>
+        </g>
+        <g transform="translate(108 210)">
+          <circle r="43" fill="#6535a0" stroke="#35251f"
+            stroke-width="7" stroke-dasharray="14 8"/>
+          <circle r="24" fill="#f7ebdd" stroke="#6535a0"
+            stroke-width="7"/>
+          <circle r="7" fill="#d87932"/>
+        </g>
+        <path d="M65 295L230 275 386 298 374 350 75 350Z"
+          fill="#a84d20" stroke="#35251f" stroke-width="6"/>
+        <path d="M75 293L229 271 380 294 225 319Z"
+          fill="#f4b544" stroke="#35251f" stroke-width="6"/>
+        <g transform="rotate(-9 225 245)">
+          <rect x="151" y="184" width="150" height="111"
+            rx="8" fill="#35251f"/>
+          <rect x="160" y="180" width="145" height="109"
+            rx="6" fill="#fff9f0" stroke="#d87932"
+            stroke-width="5"/>
+          <path d="M184 207h94M184 227h77M184 247h91M184 267h52"
+            stroke="#d8bfa1" stroke-width="5"
+            stroke-linecap="round"/>
+          <path d="M173 190v90" stroke="#a84d20"
+            stroke-width="3" stroke-dasharray="5 8"/>
+        </g>
+        <g transform="rotate(20 339 241)">
+          <rect x="331" y="172" width="16" height="112"
+            rx="4" fill="#f4b544" stroke="#35251f"
+            stroke-width="3"/>
+          <path d="M331 284l8 23 8-23Z" fill="#d87932"
+            stroke="#35251f" stroke-width="3"/>
+          <rect x="331" y="169" width="16" height="16"
+            fill="#6535a0"/>
+        </g>
+        <g transform="translate(214 91)">
+          <path d="M-41 -7a42 42 0 1 1 82 0c0 20-12 28-21 42h-40C-29 21-41 13-41-7Z"
+            fill="#f4b544" stroke="#35251f" stroke-width="6"/>
+          <path d="M-19 36h38v13h-38z" fill="#d87932"
+            stroke="#35251f" stroke-width="5"/>
+          <path d="M-14 50h28v10h-28z" fill="#6535a0"
+            stroke="#35251f" stroke-width="4"/>
+          <path d="M-13 7l13 12L13 7M0 19v16"
+            fill="none" stroke="#a84d20" stroke-width="4"/>
+          <path d="M0-70v-16M-57-49l-12-12M57-49l12-12M-62 0h-16M62 0h16"
+            stroke="#a84d20" stroke-width="5"
+            stroke-linecap="round"/>
+        </g>
+        <path d="M67 58l7 17 17 7-17 7-7 17-7-17-17-7 17-7Z"
+          fill="#6535a0"/>
+        <path d="M376 167l6 14 14 6-14 6-6 14-6-14-14-6 14-6Z"
+          fill="#1f7779"/>
+        <circle cx="110" cy="133" r="7" fill="#d87932"/>
+        <circle cx="398" cy="57" r="6" fill="#6535a0"/>
+        <circle cx="48" cy="240" r="5" fill="#1f7779"/>
+        <path d="M90 20q30-20 56 4" fill="none"
+          stroke="#1f7779" stroke-width="4"
+          stroke-linecap="round" stroke-dasharray="4 10"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="about-wrap">
+    <section class="section about-layout" id="about">
+      <div>
+        <div class="eyebrow">✦ Welcome to the Workshop</div>
+        <h2 class="section-title">A Little Strange.<br>A Lot of Possibility.</h2>
+        <p class="intro">
+          Oddly Wired Studio is an independent creative technology
+          studio exploring what happens when imagination,
+          interactive design, and thoughtful engineering
+          share the same workbench.
+        </p>
+        <p class="intro">
+          We build playful experiences, inventive software,
+          and digital creations that invite people to explore,
+          discover, and enjoy something unexpected.
+        </p>
+      </div>
+      <aside class="sticky-note">
+        <strong>Workshop Philosophy ✎</strong>
+        <p>
+          Follow the curiosity. Question the obvious.
+          Make interesting things. And if an experiment
+          gets a little weird, we're probably onto something.
+        </p>
+      </aside>
+    </section>
+  </div>
+
+  <div class="work-wrap">
+    <section class="section" id="what-we-make">
+      <div class="eyebrow">⚙️ Things on the Workbench</div>
+      <h2 class="section-title">Our Particular Brand of Making</h2>
+      <p class="intro">
+        Some ideas become worlds. Others become tools.
+        Some start with a question that refuses to leave us alone.
+      </p>
+      <div class="work-grid">
+        <article class="work-card">
+          <span class="work-icon" aria-hidden="true">🎮</span>
+          <h3>Games &amp; Play</h3>
+          <p>
+            Imaginative worlds, satisfying mechanics,
+            memorable characters, and playful experiences
+            worth getting lost in.
+          </p>
+        </article>
+        <article class="work-card">
+          <span class="work-icon" aria-hidden="true">⚙️</span>
+          <h3>Software &amp; Systems</h3>
+          <p>
+            Clever digital tools and thoughtful technology
+            built to make complicated things feel effortless.
+          </p>
+        </article>
+        <article class="work-card">
+          <span class="work-icon" aria-hidden="true">✨</span>
+          <h3>Creative Experiments</h3>
+          <p>
+            Interactive ideas, digital products,
+            and unexpected inventions born from curiosity
+            and a willingness to tinker.
+          </p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div class="ledger-wrap">
+    <section class="section ledger-layout">
+      <div>
+        <div class="eyebrow">📖 Dispatches from the Workshop</div>
+        <h2 class="section-title">Psst. Have You Seen the Ledger?</h2>
+        <p class="intro">
+          Every curious workshop needs a place to record
+          its discoveries, experiments, detours, and
+          occasional spectacular mishaps.
+        </p>
+        <p class="intro">
+          The Oddity Ledger is where the Head Goblin
+          in Charge shares what it's like to make
+          interesting things from scratch.
+        </p>
+        <a class="button" href="/journal/">Open the Oddity Ledger</a>
+      </div>
+      <div class="ledger-card">
+        <div class="mini">✦ From the Workbench</div>
+        <h3>The Oddity Ledger</h3>
+        <p>
+          Creative experiments. Development discoveries.
+          Lessons learned the hard way. And probably
+          a few stories that begin with "well, that was weird."
+        </p>
+        <a href="/journal/">Peek inside the notebook →</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="coming">
+    <div class="section">
+      <div class="eyebrow">✦ Currently Behind the Workshop Doors</div>
+      <h2 class="section-title">Something Curious Is Taking Shape.</h2>
+      <p>
+        New worlds, clever ideas, and unexpected experiences
+        are in the works. We're not quite ready to lift
+        the curtain, but the gears are definitely turning.
+      </p>
+    </div>
+  </section>
+
+  <div class="connect-wrap">
+    <section class="section connect" id="connect">
+      <div class="eyebrow">✦ Follow the Workshop</div>
+      <h2 class="section-title">Stay Curious, Won't You?</h2>
+      <p>
+        Follow along as Oddly Wired Studio grows,
+        experiments, and brings new creations into the world.
+        There's always something brewing.
+      </p>
+
+      <div class="social-links" aria-label="Social media profiles">
+        <a class="social-link"
+          href="https://www.facebook.com/profile.php?id=61595989382632"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Oddly Wired Studio on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/>
+          </svg>
+          Facebook
+        </a>
+        <a class="social-link"
+          href="https://www.instagram.com/oddlywiredstudio/"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Oddly Wired Studio on Instagram">
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+        <a class="social-link"
+          href="https://www.youtube.com/@OddlyWiredStudio"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Oddly Wired Studio on YouTube">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="5" fill="currentColor"/>
+            <path d="M10 8.5 16 12l-6 3.5z" fill="#fff9f0"/>
+          </svg>
+          YouTube
+        </a>
+        <a class="social-link"
+          href="https://www.tiktok.com/@oddlywiredstudio"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Oddly Wired Studio on TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16.7 2h-3.1v13.3a3.1 3.1 0 1 1-3.1-3.1c.3 0 .6 0 .9.1V9.1a6.3 6.3 0 1 0 5.3 6.2V8.5a8 8 0 0 0 4.8 1.5V6.9A4.9 4.9 0 0 1 16.7 2z"/>
+          </svg>
+          TikTok
+        </a>
+        <a class="social-link"
+          href="https://www.pinterest.com/oddlywiredstudio/"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Oddly Wired Studio on Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-3.64 19.31c-.04-.79-.01-1.73.2-2.59l1.28-5.45s-.32-.64-.32-1.59c0-1.49.86-2.6 1.93-2.6.91 0 1.35.68 1.35 1.5 0 .91-.58 2.27-.88 3.53-.25 1.06.53 1.93 1.57 1.93 1.88 0 3.33-1.98 3.33-4.84 0-2.52-1.81-4.29-4.4-4.29-3.01 0-4.78 2.26-4.78 4.6 0 .91.35 1.88.78 2.41.09.11.1.21.07.32l-.29 1.18c-.05.19-.16.23-.37.14-1.37-.64-2.22-2.66-2.22-4.29 0-3.49 2.54-6.69 7.32-6.69 3.84 0 6.83 2.74 6.83 6.4 0 3.82-2.41 6.9-5.75 6.9-1.12 0-2.17-.58-2.53-1.26l-.69 2.63c-.25.96-.93 2.17-1.39 2.99A10 10 0 1 0 12 2z"/>
+          </svg>
+          Pinterest
         </a>
       </div>
+
+      <p class="social-note">
+        Find us across the web as <strong>@oddlywiredstudio</strong>.
+      </p>
     </section>
+  </div>
+</main>
 
-    <div class="about-section">
-      <section class="section" id="about">
-        <div class="eyebrow">
-          Welcome to the Workshop
-        </div>
-
-        <h2 class="section-title">
-          Curiously Creative. Intentionally Built.
-        </h2>
-
-        <p class="intro">
-          Oddly Wired Studio is an independent creative
-          technology studio exploring the possibilities
-          of imagination, interactive design, and
-          thoughtful engineering.
-        </p>
-
-        <p class="intro">
-          We bring unusual ideas to life through playful
-          experiences, inventive software, and digital
-          creations that invite people to explore,
-          discover, and enjoy something different.
-        </p>
-      </section>
-    </div>
-
-    <div class="work-section">
-      <section class="section" id="what-we-make">
-        <div class="eyebrow">
-          Inside the Studio
-        </div>
-
-        <h2 class="section-title">
-          A Workshop of Possibilities
-        </h2>
-
-        <div class="grid">
-          <article class="tile">
-            <span class="tile-icon" aria-hidden="true">🎮</span>
-            <h3>Games &amp; Play</h3>
-            <p>
-              Imaginative worlds, satisfying mechanics,
-              memorable characters, and playful
-              experiences worth getting lost in.
-            </p>
-          </article>
-
-          <article class="tile">
-            <span class="tile-icon" aria-hidden="true">⚙️</span>
-            <h3>Software &amp; Systems</h3>
-            <p>
-              Clever digital tools and thoughtful
-              technology built to make complicated
-              things feel effortless.
-            </p>
-          </article>
-
-          <article class="tile">
-            <span class="tile-icon" aria-hidden="true">✨</span>
-            <h3>Creative Experiments</h3>
-            <p>
-              Interactive ideas, digital products,
-              and unexpected inventions born from
-              curiosity and a willingness to tinker.
-            </p>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <section class="coming">
-      <div class="section">
-        <div class="eyebrow">
-          Currently in the Workshop
-        </div>
-
-        <h2 class="section-title">
-          Something Curious Is Taking Shape.
-        </h2>
-
-        <p>
-          New experiences are being imagined,
-          designed, and brought to life behind
-          the workshop doors. More from
-          Oddly Wired Studio is coming.
-        </p>
-      </div>
-    </section>
-
-    <div class="connect-section">
-      <section class="section connect" id="connect">
-        <div class="eyebrow">
-          Follow the Workshop
-        </div>
-
-        <h2 class="section-title">
-          Stay Curious.
-        </h2>
-
-        <p>
-          Follow along as Oddly Wired Studio grows,
-          experiments, and brings new creations
-          into the world.
-        </p>
-
-        <div class="social-links" aria-label="Social media profiles">
-
-          <a
-            class="social-link"
-            href="https://www.facebook.com/profile.php?id=61595989382632"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Oddly Wired Studio on Facebook"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor"
-              aria-hidden="true">
-              <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/>
-            </svg>
-            Facebook
-          </a>
-
-          <a
-            class="social-link"
-            href="https://www.instagram.com/oddlywiredstudio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Oddly Wired Studio on Instagram"
-          >
-            <svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"
-              aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"
-                stroke="none"/>
-            </svg>
-            Instagram
-          </a>
-
-          <a
-            class="social-link"
-            href="https://www.youtube.com/@OddlyWiredStudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Oddly Wired Studio on YouTube"
-          >
-            <svg viewBox="0 0 24 24" fill="none"
-              aria-hidden="true">
-              <rect x="2" y="4" width="20" height="16" rx="5"
-                fill="currentColor"/>
-              <path d="M10 8.5 16 12l-6 3.5z" fill="#fff9f0"/>
-            </svg>
-            YouTube
-          </a>
-
-          <a
-            class="social-link"
-            href="https://www.tiktok.com/@oddlywiredstudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Oddly Wired Studio on TikTok"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor"
-              aria-hidden="true">
-              <path d="M16.7 2h-3.1v13.3a3.1 3.1 0 1 1-3.1-3.1c.3 0 .6 0 .9.1V9.1a6.3 6.3 0 1 0 5.3 6.2V8.5a8 8 0 0 0 4.8 1.5V6.9A4.9 4.9 0 0 1 16.7 2z"/>
-            </svg>
-            TikTok
-          </a>
-
-          <a
-            class="social-link"
-            href="https://www.pinterest.com/oddlywiredstudio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Oddly Wired Studio on Pinterest"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor"
-              aria-hidden="true">
-              <path d="M12 2a10 10 0 0 0-3.64 19.31c-.04-.79-.01-1.73.2-2.59l1.28-5.45s-.32-.64-.32-1.59c0-1.49.86-2.6 1.93-2.6.91 0 1.35.68 1.35 1.5 0 .91-.58 2.27-.88 3.53-.25 1.06.53 1.93 1.57 1.93 1.88 0 3.33-1.98 3.33-4.84 0-2.52-1.81-4.29-4.4-4.29-3.01 0-4.78 2.26-4.78 4.6 0 .91.35 1.88.78 2.41.09.11.1.21.07.32l-.29 1.18c-.05.19-.16.23-.37.14-1.37-.64-2.22-2.66-2.22-4.29 0-3.49 2.54-6.69 7.32-6.69 3.84 0 6.83 2.74 6.83 6.4 0 3.82-2.41 6.9-5.75 6.9-1.12 0-2.17-.58-2.53-1.26l-.69 2.63c-.25.96-.93 2.17-1.39 2.99A10 10 0 1 0 12 2z"/>
-            </svg>
-            Pinterest
-          </a>
-
-        </div>
-
-        <p class="social-note">
-          Find us across the web as
-          <strong>@oddlywiredstudio</strong>.
-        </p>
-
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    &copy; <span id="year">2026</span>
-    Oddly Wired Studio. Made with curiosity.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+<footer>
+  &copy; <span id="year">2026</span>
+  Oddly Wired Studio. Made with curiosity.
+</footer>
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
 </body>
 </html>

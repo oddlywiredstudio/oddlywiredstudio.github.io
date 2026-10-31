@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#35251f">
+<meta name="description" content="The Oddity Ledger at Oddly Wired Studio. Workshop dispatches, game development experiments, and creative discoveries from the Head Goblin in Charge.">
+<title>The Oddity Ledger | Oddly Wired Studio</title>
+<style>
+:root {
+  --paper: #fff9f0;
+  --cream: #f7ebdd;
+  --ink: #35251f;
+  --muted: #65544b;
+  --copper: #a84d20;
+  --orange: #d87932;
+  --gold: #f4b544;
+  --purple: #6535a0;
+  --teal: #1f7779;
+  --line: #dec5a8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font: 16px/1.65 "Trebuchet MS", Arial, sans-serif;
+}
+a { color: inherit; }
+a:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 15px max(5vw, 20px);
+  background: var(--paper);
+  border-bottom: 3px solid var(--gold);
+}
+.brand {
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+.brand span { color: var(--copper); }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: .9rem;
+  font-weight: bold;
+}
+nav a { text-decoration: none; }
+nav a:hover, nav a[aria-current] {
+  color: var(--purple);
+}
+main { overflow: hidden; }
+.masthead {
+  background: linear-gradient(
+    115deg, #f9e9d1, #f4d4a7 60%, #f7e7d4
+  );
+  border-bottom: 4px solid var(--orange);
+}
+.masthead-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 37px 24px 42px;
+  display: grid;
+  grid-template-columns: 1fr 230px;
+  gap: 25px;
+  align-items: center;
+}
+.eyebrow {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .19em;
+  font-weight: 900;
+  color: var(--copper);
+}
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  line-height: 1.15;
+}
+h1 {
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  margin: 8px 0 10px;
+}
+h1 em {
+  font-style: normal;
+  color: var(--copper);
+}
+.lede {
+  font-size: 1.03rem;
+  max-width: 620px;
+  margin: 0 0 16px;
+}
+.byline {
+  font-size: .85rem;
+  font-weight: bold;
+  display: inline-block;
+  background: var(--paper);
+  padding: 6px 13px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.art {
+  width: 210px;
+  height: 190px;
+  justify-self: center;
+  filter: drop-shadow(0 8px 7px #6a3e2a26);
+}
+.content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 24px 65px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, 1fr);
+  gap: 30px;
+}
+.section-label {
+  font-size: .74rem;
+  letter-spacing: .16em;
+  color: var(--copper);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.journal-heading {
+  font-size: 1.75rem;
+  margin: 8px 0 16px;
+}
+.notebook {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 7px solid var(--orange);
+  border-radius: 7px;
+  box-shadow: 5px 7px 0 #e7d4ba;
+  padding: 25px 26px;
+  position: relative;
+}
+.notebook::before {
+  content: "✦";
+  position: absolute;
+  right: 22px;
+  top: 12px;
+  color: var(--gold);
+  font-size: 1.6rem;
+}
+.notebook h3 {
+  font-size: 1.35rem;
+  margin: 7px 0;
+}
+.notebook p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+.date {
+  font-size: .78rem;
+  font-weight: bold;
+  color: var(--copper);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.aside {
+  align-self: start;
+  background: #f0dfc7;
+  border: 1px solid #d4b895;
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 4px 5px 0 #dec5a8;
+}
+.aside::before {
+  content: "📌";
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-size: 1.4rem;
+}
+.aside h2 {
+  font-size: 1.45rem;
+  margin: 10px 0;
+}
+.aside p {
+  margin: 0 0 13px;
+  color: #564237;
+}
+.aside p:last-child { margin-bottom: 0; }
+.stamp {
+  display: inline-block;
+  transform: rotate(-5deg);
+  border: 2px dashed var(--teal);
+  padding: 3px 9px;
+  color: var(--teal);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.bottom {
+  background: var(--ink);
+  color: #f8ecdb;
+  text-align: center;
+  padding: 25px 20px;
+}
+.bottom a {
+  color: #ffd28b;
+  font-weight: bold;
+}
+footer {
+  background: #261b17;
+  color: #e8d8c8;
+  text-align: center;
+  padding: 15px;
+  font-size: .82rem;
+}
+@media (max-width: 720px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav {
+    justify-content: center;
+    gap: 12px;
+  }
+  .masthead-inner {
+    grid-template-columns: 1fr;
+    padding: 27px 20px 32px;
+    gap: 10px;
+  }
+  .art {
+    width: 145px;
+    height: 132px;
+    grid-row: 1;
+  }
+  .content {
+    grid-template-columns: 1fr;
+    padding: 30px 20px 45px;
+  }
+  .notebook { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/">
+    ODDLY <span>WIRED</span> STUDIO
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/#about">About</a>
+    <a href="/#what-we-make">What We Make</a>
+    <a href="/journal/" aria-current="page">Oddity Ledger</a>
+    <a href="/#connect">Connect</a>
+  </nav>
+</header>
+
+<main>
+  <section class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <div class="eyebrow">
+          ✦ Dispatches from the Workshop ✦
+        </div>
+        <h1>The <em>Oddity Ledger</em></h1>
+        <p class="lede">
+          Strange little worlds, stubborn bugs, creative
+          experiments, and the occasional brilliant accident.
+          Notes from a workshop where curiosity runs the show.
+        </p>
+        <span class="byline">
+          ⚙️ By the Head Goblin in Charge
+        </span>
+      </div>
+
+      <svg class="art" viewBox="0 0 240 220"
+        role="img"
+        aria-label="Illustration of a copper gear, notebook, pencil, and sparkles"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="170" cy="83" r="55"
+          fill="#eab56b" stroke="#a84d20"
+          stroke-width="7" stroke-dasharray="15 8"/>
+        <circle cx="170" cy="83" r="32"
+          fill="#f7e7d4" stroke="#a84d20"
+          stroke-width="9"/>
+        <circle cx="170" cy="83" r="9"
+          fill="#6535a0"/>
+        <g transform="rotate(-12 95 137)">
+          <rect x="36" y="75" width="120" height="120"
+            rx="8" fill="#35251f"/>
+          <rect x="44" y="79" width="115" height="112"
+            rx="5" fill="#fff9f0"
+            stroke="#d87932" stroke-width="4"/>
+          <path d="M65 109h70M65 128h58M65 147h65M65 166h38"
+            stroke="#d9c0a3" stroke-width="4"
+            stroke-linecap="round"/>
+          <path d="M55 85v102" stroke="#a84d20"
+            stroke-width="3" stroke-dasharray="5 8"/>
+        </g>
+        <g transform="rotate(25 181 146)">
+          <rect x="175" y="93" width="12" height="92"
+            rx="3" fill="#f4b544"
+            stroke="#35251f" stroke-width="2"/>
+          <path d="M175 185l6 16 6-16"
+            fill="#d87932" stroke="#35251f"
+            stroke-width="2"/>
+          <rect x="175" y="91" width="12" height="12"
+            fill="#6535a0"/>
+        </g>
+        <path d="M48 35l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"
+          fill="#6535a0"/>
+        <path d="M208 20l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"
+          fill="#d87932"/>
+        <circle cx="25" cy="123" r="5" fill="#1f7779"/>
+        <circle cx="214" cy="188" r="5" fill="#6535a0"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="content">
+    <section aria-labelledby="latest">
+      <div class="section-label">
+        Notes from the Workbench
+      </div>
+      <h2 class="journal-heading" id="latest">
+        Latest Entries
+      </h2>
+      <article class="notebook">
+        <div class="date">
+          Workshop bulletin · Ledger opening
+        </div>
+        <h3>The Ink Is Still Drying</h3>
+        <p>
+          The Oddity Ledger is ready, but the first entry
+          hasn't been published yet. Soon this space
+          will hold real notes on the messy, fascinating
+          process of learning to build games.
+        </p>
+      </article>
+    </section>
+
+    <aside class="aside">
+      <span class="stamp">Workshop Notes</span>
+      <h2>What's going on in here?</h2>
+      <p>
+        I've spent years building systems and software.
+        Now I'm exploring what happens when those
+        systems need to be fun, too.
+      </p>
+      <p>
+        I'll share lessons, experiments, and the occasional
+        spectacular detour. The unreleased projects and
+        secret ingredients stay behind the workshop doors.
+      </p>
+    </aside>
+  </div>
+
+  <section class="bottom">
+    <p>
+      ⚙️ The workshop never really closes.
+      <a href="/">Back to Oddly Wired Studio</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  &copy; <span id="year">2026</span>
+  Oddly Wired Studio. Made with curiosity.
+</footer>
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+</body>
+</html>
