@@ -269,6 +269,18 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* Private authoring panel: visible only with ?edit=1 */
+.ledger-editor { max-width: 1100px; margin: 25px auto; padding: 25px; background: var(--paper); border: 2px solid var(--purple); border-radius: 12px; box-shadow: 5px 6px 0 #dec5a8; }
+.ledger-editor[hidden] { display:none; }
+.ledger-editor h2 { margin:0 0 12px; }
+.ledger-editor label { display:block; font-weight:bold; margin:12px 0 5px; }
+.ledger-editor input, .ledger-editor textarea { width:100%; padding:12px; font:inherit; border:1px solid #a99279; border-radius:5px; background:white; color:var(--ink); }
+.ledger-editor textarea { min-height:260px; resize:vertical; }
+.ledger-editor button { padding:11px 18px; margin:12px 10px 0 0; border:0; border-radius:5px; background:var(--copper); color:white; font:inherit; font-weight:bold; cursor:pointer; }
+.ledger-editor button.secondary { background:var(--purple); }
+.ledger-editor .hint { color:var(--muted); font-size:.9rem; }
+.ledger-editor .message { font-weight:bold; color:var(--teal); }
 </style>
 </head>
 <body>
@@ -348,6 +360,22 @@ footer {
     </div>
   </section>
 
+
+  <section id="ledger-editor" class="ledger-editor" hidden aria-label="Ledger authoring">
+    <h2>⚙️ Ledger Workbench</h2>
+    <p>Write an entry, preview it, then download the updated page. Your existing entries stay intact. This is a local authoring tool, not a public posting form.</p>
+    <label for="ledger-title">Entry title</label>
+    <input id="ledger-title" placeholder="The Rectangle That Ate a Day" autocomplete="off">
+    <label for="ledger-date">Entry date or label</label>
+    <input id="ledger-date" placeholder="November 2, 2026" autocomplete="off">
+    <label for="ledger-body">Entry text</label>
+    <textarea id="ledger-body" placeholder="Write paragraphs separated by a blank line. Start a line with ## for a section heading."></textarea>
+    <p class="hint">Blank lines separate paragraphs. A line starting with ## becomes a section heading. Plain text is escaped safely.</p>
+    <button type="button" id="ledger-preview">Preview entry</button>
+    <button type="button" id="ledger-export" class="secondary">Download updated index.html</button>
+    <p id="ledger-message" class="message" role="status"></p>
+  </section>
+
   <div class="content">
     <section aria-labelledby="latest">
       <div class="section-label">
@@ -360,6 +388,104 @@ footer {
       <div class="entries">
 
         <!-- NEWEST ENTRY FIRST -->
+<article class="notebook" id="entry-007">
+<div class="date">Ledger Entry No. 007 · Regulars and Relationships</div>
+<h3>Apparently, the Customers Have Opinions</h3>
+<p>A shop can have inventory, recipes, and a perfectly respectable ledger and still feel oddly empty. Eventually somebody needs to walk through the door with an opinion about what they want.</p>
+<p>That is where recurring customers and rotating requests come in. Instead of treating every commission like an anonymous transaction, I want the people visiting the emporium to have a reason to be remembered.</p>
+<h4>A Familiar Face</h4>
+<p>The latest development pass expands customer requests and introduces the foundation for relationship progression. A customer who keeps returning should feel different from somebody who has just discovered the shop.</p>
+<p>Loyalty levels and relationship bonuses are part of that direction. The relationship system has been drafted in code, although I am not calling it fully tested until it has actually been run through the game.</p>
+<h4>Characters Need More Than Names</h4>
+<p>The next creative challenge is giving these regulars personality. What do they collect? What makes them peculiar? Why do they keep coming back? What do they know about the world that the player might discover over time?</p>
+<p>Those questions matter because the emporium should feel like a place in a community, not a vending machine with a fantasy font.</p>
+<h4>The Workshop Keeps Changing</h4>
+<p>The game has grown from a small crafting experiment into a shop with an economy, progression, discoveries, and the beginnings of relationships. There is plenty left to build, and some systems still need testing and refinement.</p>
+<p>But I can see the shape of the experience now. A curious goblin, a peculiar shop, and a world full of people who might just need something wonderfully strange.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-006">
+<div class="date">Ledger Entry No. 006 · Experimentation and Discovery</div>
+<h3>Curiosity Shouldn’t Cost a Fortune</h3>
+<p>Here is a problem I did not fully appreciate until I was actually playing: a discovery system can be completely functional and still punish the very behavior it is supposed to encourage.</p>
+<p>We introduced experimental crafting so players could combine materials and discover new inventions. The idea was delightful. The early experience? A lot of failures and not nearly enough recovery.</p>
+<h4>That Is Not the Kind of Mystery I Want</h4>
+<p>I do not want a player to feel foolish for trying something. The whole point of this little world is curiosity, invention, and happy accidents. If experimentation repeatedly empties your supplies without giving you useful information, eventually you stop experimenting.</p>
+<p>So I pushed for a more forgiving system. Failed attempts should return most of the ingredients, and hints should help point players toward possibilities without simply handing them every answer.</p>
+<h4>A Clue Is Better Than a Wall</h4>
+<p>The design shifted toward a discovery journal, clues, and gentler consequences. That preserves the satisfaction of figuring something out while respecting the player’s time.</p>
+<p>There is a difference between challenge and annoyance. I am interested in the former. The latter can take its little bag of gears and go home.</p>
+<p>This was an important reminder that testing is not just checking whether the code runs. It is noticing when the experience feels wrong and being willing to change the rules.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-005">
+<div class="date">Ledger Entry No. 005 · Quality of Life and Progression</div>
+<h3>The Goblin Needs a Bigger Workshop</h3>
+<p>I love a good crafting loop. I do not love clicking the same button fifteen times because I want fifteen of something.</p>
+<p>Once the basics worked, the next round of development was about making the shop less fussy to use. Buying materials in batches. Crafting more than one item. Moving several things to a display. Selling inventory without turning it into an endurance event.</p>
+<h4>Less Clicking, More Playing</h4>
+<p>Bulk actions sound like a tiny convenience until you realize how often players repeat the same task. Making a system technically possible is one thing. Making it pleasant enough to use over and over is another.</p>
+<p>I wanted the player to spend their attention deciding what to make and sell, not wrestling with the interface to do it.</p>
+<h4>A Shop That Grows</h4>
+<p>We also started adding progression. Shop upgrades, achievements, and rewards gave all those ordinary transactions somewhere to lead. A larger display creates more possibilities. Better supplier connections and a stronger reputation make the shop feel like it is changing over time.</p>
+<p>A little bonus surprise during crafting adds another reason to smile. Not every reward needs to be a dramatic fireworks display. Sometimes the goblin makes an extra trinket, and that is enough.</p>
+<h4>The Real Design Question</h4>
+<p>I keep coming back to the same principle: if a feature adds friction without adding meaningful choice, why is it there? Progression should create possibilities. Repetition should feel satisfying, not compulsory.</p>
+<p>The workshop is getting bigger. Thankfully, the goblin has not asked me to file a zoning permit.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-004">
+<div class="date">Ledger Entry No. 004 · The Shop Gets Serious</div>
+<h3>Wait, We Have an Economy Now?</h3>
+<p>One day you are making copper trinkets at a workbench. The next, you are looking at a daily financial ledger and wondering when your imaginary goblin became a small-business owner.</p>
+<p>The shop started developing a rhythm: buy materials, make things, sell them, fill requests, arrange the displays, and close out the day. Every action had consequences somewhere else in the system. Which is exactly the point.</p>
+<h4>More Than a Coin Counter</h4>
+<p>Selling an item is easy to describe. But what about the ingredients that went into it? What about a commission reward, the cost of restocking, or the money spent on an upgrade? A shop that only celebrates money coming in is not telling the whole story.</p>
+<p>So the daily ledger began tracking income and expenses separately. Sales, commissions, rewards, supplies, upgrades, and the resulting net change. The numbers became a way to understand what actually happened during a shop day.</p>
+<h4>Closing Time</h4>
+<p>The end-of-day process also became more meaningful. Merchandise on display could sell overnight, commissions refreshed, and the next day opened with new work to do. It gave the game a cadence rather than a collection of unrelated menus.</p>
+<p>This is one of my favorite kinds of building: watching separate mechanics become a system that feels like it has its own internal logic. The goblin is not just making things anymore. She is running an emporium.</p>
+<p>And yes, I am fully aware that I have somehow given myself another business to manage. This one just happens to accept imaginary coins.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-003">
+<div class="date">Ledger Entry No. 003 · Interface Adventures</div>
+<h3>The Rectangle That Ate a Day</h3>
+<p>Somewhere between “I have a playable shop” and “I want it to look like an actual shop,” I met a rectangle. A very stubborn rectangle.</p>
+<p>Game engines are wonderful at reminding you that knowing how to build software does not automatically mean knowing where every control, container, and anchor is hiding. Godot and I had some conversations. Several of them were not polite.</p>
+<h4>The Difference Between Working and Usable</h4>
+<p>The workbench worked. The shop systems worked. But a working button is not particularly helpful when a panel is covering it. At one point the day and coin display overlapped the workbench controls. The interface was doing its best impression of a crowded junk drawer.</p>
+<p>The fix was not some grand breakthrough. It was figuring out which controls were occupying the same space and moving them into a layout that made sense. That is how much of development goes: a very specific problem, a very specific solution, and an unreasonable amount of time spent getting there.</p>
+<h4>My Kind of Workflow</h4>
+<p>I also learned something about how I want to work on this game. I would rather make intentional changes in code than spend my days hunting through panels and clicking around an editor. Give me the full file, let me see what changed, and let me test the actual result.</p>
+<p>There is a lesson here about systems design, too. A feature is not finished just because its logic is correct. If people cannot see it, understand it, or use it without fighting the interface, the work is not finished.</p>
+<p>The rectangle did not win. But I suspect it has relatives.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-002">
+<div class="date">Ledger Entry No. 002 · The First Playable Shop</div>
+<h3>From Idea to Actual Game</h3>
+<p>There is a rather significant difference between saying, “I think I want to make a game,” and sitting in front of a game engine trying to make the damn thing work. I have now experienced both. And apparently, we’re committed.</p>
+<h4>Meet the Copper Goblin</h4>
+<p>Our first original game at Oddly Wired Studio is The Copper Goblin Emporium, a cozy fantasy crafting and shopkeeping game with a little steampunk influence and a healthy appreciation for questionable inventions. At the center is a resourceful, slightly chaotic goblin who likes to tinker. She may occasionally blow something up.</p>
+<p>I want curiosity to matter. I want making something strange to be part of the fun. Not every game needs to involve saving the kingdom. Sometimes you just want to make a ridiculous little contraption and convince somebody to buy it.</p>
+<h4>Building the Boring Stuff First</h4>
+<p>Underneath a charming fantasy shop is an absolutely unreasonable number of systems: inventory, recipes, currency, purchasing, sales, customer requests, progression, and saving. They all have to agree with one another. If I use materials, they have to leave inventory. If I sell an item, the money has to show up. If I close the game, the progress needs to survive.</p>
+<p>So we started with a fixed shop instead of trying to build an entire explorable village on day one. A workbench, some materials, a couple of recipes, and buttons that actually did something.</p>
+<h4>The First Real Milestone</h4>
+<p>Eventually I could craft an item, sell it, buy more supplies, and return to the shop without losing everything. Suddenly this was not just a collection of buttons. It was a connected gameplay loop. A tiny economy. The beginning of an actual game.</p>
+<p>Was it pretty? Absolutely not. Did that matter? Not nearly as much as getting the foundation working. There will be time to make everything adorable. First, the goblin needs a business that functions.</p>
+<h4>A Different Kind of Building</h4>
+<p>A system can work perfectly and still be a terrible game. A crafting process can be mathematically correct and completely tedious. So I’m learning to ask a different question: not just “Does this work?” but “Does this make somebody want to keep playing?”</p>
+<p>We have an actual playable foundation now. Which is both exciting and mildly dangerous, because I keep thinking of things to add. The goblin and I may have that in common.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
         <article class="notebook" id="entry-001">
           <div class="date">
             Ledger Entry No. 001 · The Beginning
@@ -555,6 +681,114 @@ footer {
 <script>
   document.getElementById("year").textContent =
     new Date().getFullYear();
+</script>
+
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('edit') !== '1') return;
+  const panel = document.getElementById('ledger-editor');
+  panel.hidden = false;
+  const title = document.getElementById('ledger-title');
+  const date = document.getElementById('ledger-date');
+  const body = document.getElementById('ledger-body');
+  const message = document.getElementById('ledger-message');
+  const entries = document.querySelector('.entries');
+  const draftKey = 'oddity-ledger-entry-draft-v1';
+  let preview = null;
+
+  try {
+    const draft = JSON.parse(localStorage.getItem(draftKey) || '{}');
+    title.value = draft.title || '';
+    date.value = draft.date || '';
+    body.value = draft.body || '';
+  } catch (_) { /* Local drafts are optional. */ }
+
+  function saveDraft() {
+    try { localStorage.setItem(draftKey, JSON.stringify({title:title.value,date:date.value,body:body.value})); } catch (_) {}
+  }
+  [title,date,body].forEach(el => el.addEventListener('input', saveDraft));
+
+  function nextEntryNumber() {
+    const numbers = [...entries.querySelectorAll('[id^="entry-"]')]
+      .map(el => Number(el.id.slice(6))).filter(Number.isInteger);
+    return Math.max(0, ...numbers) + 1;
+  }
+
+  function makeEntry() {
+    if (!title.value.trim() || !body.value.trim()) {
+      message.textContent = 'Enter a title and entry text first.';
+      return null;
+    }
+    const number = nextEntryNumber();
+    const article = document.createElement('article');
+    article.className = 'notebook';
+    article.id = 'entry-' + String(number).padStart(3,'0');
+    const meta = document.createElement('div');
+    meta.className = 'date';
+    meta.textContent = 'Ledger Entry No. ' + String(number).padStart(3,'0') + (date.value.trim() ? ' · ' + date.value.trim() : '');
+    article.append(meta);
+    const heading = document.createElement('h3');
+    heading.textContent = title.value.trim();
+    article.append(heading);
+    const blocks = body.value.trim().split(/\n\s*\n/);
+    blocks.forEach(block => {
+      const lines = block.trim().split('\n');
+      const isHeading = lines.length === 1 && /^##\s+/.test(lines[0]);
+      const el = document.createElement(isHeading ? 'h4' : 'p');
+      el.textContent = isHeading ? lines[0].replace(/^##\s+/, '') : lines.join(' ');
+      article.append(el);
+    });
+    const signoff = document.createElement('div');
+    signoff.className = 'entry-signoff';
+    const signed = document.createElement('p');
+    const italic = document.createElement('em');
+    italic.textContent = 'Signed,';
+    signed.append(italic);
+    const name = document.createElement('p');
+    const strong = document.createElement('strong');
+    strong.textContent = 'The Head Goblin in Charge ⚙️';
+    name.append(strong);
+    signoff.append(signed,name);
+    article.append(signoff);
+    return article;
+  }
+
+  document.getElementById('ledger-preview').addEventListener('click', () => {
+    const article = makeEntry();
+    if (!article) return;
+    if (preview) preview.remove();
+    preview = article;
+    preview.id = 'entry-preview';
+    entries.prepend(preview);
+    message.textContent = 'Preview is at the top of Latest Entries. It is not published yet.';
+    preview.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  document.getElementById('ledger-export').addEventListener('click', () => {
+    if (preview) { preview.remove(); preview = null; }
+    const article = makeEntry();
+    if (!article) return;
+    const clone = document.documentElement.cloneNode(true);
+    const clonedPanel = clone.querySelector('#ledger-editor');
+    clonedPanel.hidden = true;
+    clonedPanel.querySelector('#ledger-title').value = '';
+    clonedPanel.querySelector('#ledger-date').value = '';
+    clonedPanel.querySelector('#ledger-body').value = '';
+    clonedPanel.querySelector('#ledger-message').textContent = '';
+    clone.querySelector('.entries').prepend(article.cloneNode(true));
+    const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    const url = URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'index.html';
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    message.textContent = 'Updated index.html downloaded. Replace your journal index.html with it and push to GitHub to publish.';
+  });
+})();
 </script>
 </body>
 </html>
