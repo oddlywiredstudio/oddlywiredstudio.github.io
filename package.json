@@ -4,7 +4,8 @@
   },
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "publish": "npm run build && git add src/journal/index.html && git commit -m \"Publish Oddity Ledger\" && git push origin main"
   },
   "type": "module"
 }
