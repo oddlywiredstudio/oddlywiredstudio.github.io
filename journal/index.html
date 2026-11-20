@@ -1,11 +1,13 @@
+<!DOCTYPE html>
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#35251f">
-<meta name="description" content="The Oddity Ledger at Oddly Wired Studio. Workshop dispatches, game development experiments, and creative discoveries from the Head Goblin in Charge.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#35251f" name="theme-color"/>
+<meta content="The Oddity Ledger at Oddly Wired Studio. Workshop dispatches, game development experiments, and creative discoveries from the Head Goblin in Charge." name="description"/>
 <title>The Oddity Ledger | Oddly Wired Studio</title>
 <style>
 :root {
@@ -269,121 +271,298 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* Private authoring panel: visible only with ?edit=1 */
+.ledger-editor { max-width: 1100px; margin: 25px auto; padding: 25px; background: var(--paper); border: 2px solid var(--purple); border-radius: 12px; box-shadow: 5px 6px 0 #dec5a8; }
+.ledger-editor[hidden] { display:none; }
+.ledger-editor h2 { margin:0 0 12px; }
+.ledger-editor label { display:block; font-weight:bold; margin:12px 0 5px; }
+.ledger-editor input, .ledger-editor textarea { width:100%; padding:12px; font:inherit; border:1px solid #a99279; border-radius:5px; background:white; color:var(--ink); }
+.ledger-editor textarea { min-height:260px; resize:vertical; }
+.ledger-editor button { padding:11px 18px; margin:12px 10px 0 0; border:0; border-radius:5px; background:var(--copper); color:white; font:inherit; font-weight:bold; cursor:pointer; }
+.ledger-editor button.secondary { background:var(--purple); }
+.ledger-editor .hint { color:var(--muted); font-size:.9rem; }
+.ledger-editor .message { font-weight:bold; color:var(--teal); }
+
+/* Oddity Ledger: distinct, collectible workshop dispatches */
+.entries { gap: 38px; }
+.entries > .notebook {
+  --entry-accent: #a84d20;
+  --entry-paper: #fff9f0;
+  --entry-soft: #f6e4cf;
+  background: var(--entry-paper);
+  border: 1px solid color-mix(in srgb, var(--entry-accent) 36%, #d7c2a9);
+  border-left: 8px solid var(--entry-accent);
+  border-radius: 8px 18px 12px 8px;
+  box-shadow: 7px 9px 0 var(--entry-soft), 0 14px 25px #35251f0a;
+  padding: 30px 32px 32px;
+  overflow: hidden;
+}
+.entries > .notebook:nth-of-type(4n + 1) {
+  --entry-accent: #6a3b94;
+  --entry-paper: #f8f3fc;
+  --entry-soft: #e9ddef;
+}
+.entries > .notebook:nth-of-type(4n + 2) {
+  --entry-accent: #166b70;
+  --entry-paper: #f1faf7;
+  --entry-soft: #d7eae5;
+}
+.entries > .notebook:nth-of-type(4n + 3) {
+  --entry-accent: #ae4a27;
+  --entry-paper: #fff5e8;
+  --entry-soft: #f0dcc4;
+}
+.entries > .notebook:nth-of-type(4n + 4) {
+  --entry-accent: #88405e;
+  --entry-paper: #fff3f5;
+  --entry-soft: #f0dce2;
+}
+.entries > .notebook::before {
+  content: "✦";
+  top: 17px;
+  right: 22px;
+  font-size: 1.6rem;
+  color: var(--entry-accent);
+  opacity: .85;
+}
+.entries > .notebook::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 105px;
+  height: 8px;
+  background: repeating-linear-gradient(90deg, var(--entry-accent) 0 13px, transparent 13px 20px);
+  opacity: .6;
+}
+.entries > .notebook .date {
+  display: inline-block;
+  max-width: calc(100% - 28px);
+  color: var(--entry-accent);
+  background: var(--entry-soft);
+  border: 1px solid color-mix(in srgb, var(--entry-accent) 25%, transparent);
+  border-radius: 3px;
+  padding: 5px 11px;
+  letter-spacing: .09em;
+  line-height: 1.5;
+}
+.entries > .notebook h3 {
+  color: #35251f;
+  font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+  margin-top: 17px;
+  margin-bottom: 19px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed color-mix(in srgb, var(--entry-accent) 35%, transparent);
+}
+.entries > .notebook h4 {
+  color: var(--entry-accent);
+  margin-top: 29px;
+  padding-left: 13px;
+  border-left: 3px solid var(--entry-accent);
+}
+.entries > .notebook .entry-signoff {
+  background: var(--entry-soft);
+  border-top: 2px dashed color-mix(in srgb, var(--entry-accent) 30%, transparent);
+  border-radius: 0 0 7px 7px;
+  padding: 16px 18px;
+  margin-top: 28px;
+}
+.entries > .notebook .entry-signoff strong { color: var(--entry-accent); }
+.entries > .notebook p { line-height: 1.8; }
+.entries > #opening-announcement { --entry-accent: #705b42; --entry-paper: #f4e8d6; --entry-soft: #e7d6bc; }
+@media (max-width: 720px) {
+  .entries { gap: 30px; }
+  .entries > .notebook { padding: 23px 20px 25px; box-shadow: 4px 6px 0 var(--entry-soft); }
+  .entries > .notebook h3 { font-size: 1.5rem; }
+}
 </style>
 </head>
 <body>
-
 <header>
-  <a class="brand" href="/">
+<a class="brand" href="/">
     ODDLY <span>WIRED</span> STUDIO
   </a>
-  <nav aria-label="Main navigation">
-    <a href="/">Home</a>
-    <a href="/#about">About</a>
-    <a href="/#what-we-make">What We Make</a>
-    <a href="/journal/" aria-current="page">Oddity Ledger</a>
-    <a href="/#connect">Connect</a>
-  </nav>
+<nav aria-label="Main navigation">
+<a href="/">Home</a>
+<a href="/#about">About</a>
+<a href="/#what-we-make">What We Make</a>
+<a aria-current="page" href="/journal/">Oddity Ledger</a>
+<a href="/#connect">Connect</a>
+</nav>
 </header>
-
 <main>
-  <section class="masthead">
-    <div class="masthead-inner">
-      <div>
-        <div class="eyebrow">
+<section class="masthead">
+<div class="masthead-inner">
+<div>
+<div class="eyebrow">
           ✦ Dispatches from the Workshop ✦
         </div>
-        <h1>The <em>Oddity Ledger</em></h1>
-        <p class="lede">
+<h1>The <em>Oddity Ledger</em></h1>
+<p class="lede">
           Strange little worlds, stubborn bugs, creative
           experiments, and the occasional brilliant accident.
           Notes from a workshop where curiosity runs the show.
         </p>
-        <span class="byline">
+<span class="byline">
           ⚙️ By the Head Goblin in Charge
         </span>
-      </div>
-
-      <svg class="art" viewBox="0 0 240 220"
-        role="img"
-        aria-label="Illustration of a copper gear, notebook, pencil, and sparkles"
-        xmlns="http://www.w3.org/2000/svg">
-        <circle cx="170" cy="83" r="55"
-          fill="#eab56b" stroke="#a84d20"
-          stroke-width="7" stroke-dasharray="15 8"/>
-        <circle cx="170" cy="83" r="32"
-          fill="#f7e7d4" stroke="#a84d20"
-          stroke-width="9"/>
-        <circle cx="170" cy="83" r="9"
-          fill="#6535a0"/>
-        <g transform="rotate(-12 95 137)">
-          <rect x="36" y="75" width="120" height="120"
-            rx="8" fill="#35251f"/>
-          <rect x="44" y="79" width="115" height="112"
-            rx="5" fill="#fff9f0"
-            stroke="#d87932" stroke-width="4"/>
-          <path d="M65 109h70M65 128h58M65 147h65M65 166h38"
-            stroke="#d9c0a3" stroke-width="4"
-            stroke-linecap="round"/>
-          <path d="M55 85v102" stroke="#a84d20"
-            stroke-width="3" stroke-dasharray="5 8"/>
-        </g>
-        <g transform="rotate(25 181 146)">
-          <rect x="175" y="93" width="12" height="92"
-            rx="3" fill="#f4b544"
-            stroke="#35251f" stroke-width="2"/>
-          <path d="M175 185l6 16 6-16"
-            fill="#d87932" stroke="#35251f"
-            stroke-width="2"/>
-          <rect x="175" y="91" width="12" height="12"
-            fill="#6535a0"/>
-        </g>
-        <path d="M48 35l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"
-          fill="#6535a0"/>
-        <path d="M208 20l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"
-          fill="#d87932"/>
-        <circle cx="25" cy="123" r="5" fill="#1f7779"/>
-        <circle cx="214" cy="188" r="5" fill="#6535a0"/>
-      </svg>
-    </div>
-  </section>
-
-  <div class="content">
-    <section aria-labelledby="latest">
-      <div class="section-label">
+</div>
+<svg aria-label="Illustration of a copper gear, notebook, pencil, and sparkles" class="art" role="img" viewbox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+<circle cx="170" cy="83" fill="#eab56b" r="55" stroke="#a84d20" stroke-dasharray="15 8" stroke-width="7"></circle>
+<circle cx="170" cy="83" fill="#f7e7d4" r="32" stroke="#a84d20" stroke-width="9"></circle>
+<circle cx="170" cy="83" fill="#6535a0" r="9"></circle>
+<g transform="rotate(-12 95 137)">
+<rect fill="#35251f" height="120" rx="8" width="120" x="36" y="75"></rect>
+<rect fill="#fff9f0" height="112" rx="5" stroke="#d87932" stroke-width="4" width="115" x="44" y="79"></rect>
+<path d="M65 109h70M65 128h58M65 147h65M65 166h38" stroke="#d9c0a3" stroke-linecap="round" stroke-width="4"></path>
+<path d="M55 85v102" stroke="#a84d20" stroke-dasharray="5 8" stroke-width="3"></path>
+</g>
+<g transform="rotate(25 181 146)">
+<rect fill="#f4b544" height="92" rx="3" stroke="#35251f" stroke-width="2" width="12" x="175" y="93"></rect>
+<path d="M175 185l6 16 6-16" fill="#d87932" stroke="#35251f" stroke-width="2"></path>
+<rect fill="#6535a0" height="12" width="12" x="175" y="91"></rect>
+</g>
+<path d="M48 35l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#6535a0"></path>
+<path d="M208 20l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#d87932"></path>
+<circle cx="25" cy="123" fill="#1f7779" r="5"></circle>
+<circle cx="214" cy="188" fill="#6535a0" r="5"></circle>
+</svg>
+</div>
+</section>
+<section aria-label="Ledger authoring" class="ledger-editor" hidden="" id="ledger-editor">
+<h2>⚙️ Ledger Workbench</h2>
+<p>Write an entry, preview it, then download the updated page. Your existing entries stay intact. This is a local authoring tool, not a public posting form.</p>
+<label for="ledger-title">Entry title</label>
+<input autocomplete="off" id="ledger-title" placeholder="The Rectangle That Ate a Day"/>
+<label for="ledger-date">Entry date or label</label>
+<input autocomplete="off" id="ledger-date" placeholder="November 2, 2026"/>
+<label for="ledger-body">Entry text</label>
+<textarea id="ledger-body" placeholder="Write paragraphs separated by a blank line. Start a line with ## for a section heading."></textarea>
+<p class="hint">Blank lines separate paragraphs. A line starting with ## becomes a section heading. Plain text is escaped safely.</p>
+<button id="ledger-preview" type="button">Preview entry</button>
+<button class="secondary" id="ledger-export" type="button">Download updated index.html</button>
+<p class="message" id="ledger-message" role="status"></p>
+</section>
+<div class="content">
+<section aria-labelledby="latest">
+<div class="section-label">
         Notes from the Workbench
       </div>
-      <h2 class="journal-heading" id="latest">
+<h2 class="journal-heading" id="latest">
         Latest Entries
       </h2>
+<div class="entries"><article class="notebook" id="entry-012"><div class="date">Ledger Entry No. 012 · November 20, 2026</div><h3>The Goblins Discover Marketing</h3><p>Here is a familiar creative-business problem: making the thing is exciting. Remembering to tell people the thing exists, consistently, while making three other things? Less exciting.</p><h4>The Zero-Dollar Department</h4><p>Oddly Wired Studio is building its first promotional campaign with a budget of exactly zero dollars. The content itself is not the obstacle. I can make content. The obstacle is getting it scheduled and published while the rest of the workshop keeps demanding attention.</p><p>So I started setting up a practical publishing workflow, including Buffer for social scheduling and Headliner for audio-based promotional content. The studio now has Facebook, Instagram, and TikTok channels in the mix.</p><h4>Make the System Do Its Job</h4><p>This is where my process-design brain gets to earn its keep. A marketing plan that depends on me remembering every individual post is not much of a plan. I want a repeatable system that can hold the schedule while I get back to building.</p><p>The setup is underway, not magically complete. But it is a step toward making the studio visible without turning every day into a manual posting marathon. The goblins may be chaotic. The calendar does not have to be.</p><div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div></article>
 
-      <div class="entries">
+<article class="notebook" id="entry-011"><div class="date">Ledger Entry No. 011 · November 19, 2026</div><h3>The Dead Have a Podcast Now</h3><p>Once you invent a fictional true crime case, apparently the next logical step is to give it a podcast. I cannot explain how the workshop arrived here so quickly, but I can tell you the idea makes an unreasonable amount of sense.</p><h4>Every Case Gets an Episode</h4><p>The plan is a promotional audio series that treats each Murder &amp; Mayhem game as a fictional case worth discussing. Each episode sets the mood, introduces the premise, and gives listeners a reason to want the full printable experience.</p><p>The hosts are not there to solve the mystery for you. That would be a spectacular way to ruin the product we just spent time making. The conversation is about the case, the atmosphere, and the questions it raises.</p><h4>More Than a Trailer</h4><p>I like the idea of a game having a life beyond its printed pages. Audio can make the fictional world feel bigger, give each release its own personality, and introduce the experience to people who have not yet played.</p><p>There are still production decisions to make, but the format is taking shape. Somewhere in this studio, a microphone has become an accessory to imaginary crime.</p><div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div></article>
 
-        <!-- NEWEST ENTRY FIRST -->
-        <article class="notebook" id="entry-001">
-          <div class="date">
+<article class="notebook" id="entry-010"><div class="date">Ledger Entry No. 010 · November 19, 2026</div><h3>We've Added Murder to the Menu</h3><p>The Oddly Wired workshop has acquired a new department. It involves fictional crimes, suspicious people, printable evidence, and absolutely no actual bodies. Welcome to Murder &amp; Mayhem.</p><h4>A Mystery You Can Hold</h4><p>Murder &amp; Mayhem is a series of fictional true crime mystery printables. Each experience invites players to step into a case through documents, character perspectives, and the kinds of details that make you lean across the table and say, “Wait a minute.”</p><p>The first game in development, Motion to Murder, has already grown into a substantial collection of character booklets and supporting materials. The goal is an experience that feels like digging into a case, not filling out a worksheet.</p><h4>The Fun Is in the Conversation</h4><p>I want people to compare stories, question what they think they know, and enjoy the process of piecing together a fictional mystery. That also means I am being careful about what gets shared publicly. A good mystery needs room to surprise its players.</p><p>So yes, the studio that started with a goblin shop now has a fictional crime desk. Apparently my creative interests refuse to stay in one genre. I am choosing to call that range.</p><div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div></article>
+
+<article class="notebook" id="entry-009"><div class="date">Ledger Entry No. 009 · November 17, 2026</div><h3>Apparently, the Shop Needed More Chaos</h3><p>You would think a shop with crafting, customers, and an economy would be enough to keep one goblin occupied. You would be wrong. I started exploring what happens when the workshop itself becomes something you can poke, drag, and investigate.</p><h4>A Little More Hands-On</h4><p>The new interaction experiments bring objects, sounds, curious creatures, and environmental surprises into the picture. Instead of only choosing actions from menus, I am exploring the fun of touching things in the space and seeing what happens.</p><p>Some ideas are prototypes, not promises. That distinction matters. A delightful experiment still has to earn its place in the game.</p><h4>One World, Two Ways to Play</h4><p>The interesting design question is how to connect hands-on discovery with the existing shop systems. A playful workshop should complement crafting and shopkeeping, not turn them into two unrelated games sharing a name.</p><p>So the work continues: test what is fun, keep what fits, and let the goblin make a reasonable amount of trouble. I said reasonable. The goblin heard something else.</p><div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div></article>
+
+<article class="notebook" id="entry-008"><div class="date">Ledger Entry No. 008 · November 10, 2026</div><h3>The Goblins Have a Working Game</h3><p>There is a special kind of satisfaction in watching a project go from “I wonder if I could build this” to “Hang on, I can actually play this.” Copper Goblin Emporium has reached that point. And naturally, the goblin has already found new ways to keep me busy.</p><h4>A Shop With Something to Do</h4><p>The crafting, inventory, supplier, commission, progression, and saving systems are no longer just notes on a planning page. They have become connected pieces of a playable shop. You can make things, manage supplies, take on requests, and see the consequences of your decisions.</p><p>That does not mean every corner is finished or polished. It means there is a real foundation to play, test, and improve. A working game loop is a different animal from a pretty concept.</p><h4>The Camera Comes Out</h4><p>I started recording gameplay, which is its own milestone. Watching a recording makes you notice things you miss while concentrating on the next button or bug. Where does the experience drag? What is confusing? What feels satisfying?</p><p>The workshop has moved from proving the systems can work to figuring out how they should feel. And yes, I am already thinking about what the goblin should do next.</p><div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div></article>
+
+<article class="notebook" id="entry-007">
+<div class="date">Ledger Entry No. 007 · Regulars and Relationships</div>
+<h3>Apparently, the Customers Have Opinions</h3>
+<p>A shop can have inventory, recipes, and a perfectly respectable ledger and still feel oddly empty. Eventually somebody needs to walk through the door with an opinion about what they want.</p>
+<p>That is where recurring customers and rotating requests come in. Instead of treating every commission like an anonymous transaction, I want the people visiting the emporium to have a reason to be remembered.</p>
+<h4>A Familiar Face</h4>
+<p>The latest development pass expands customer requests and introduces the foundation for relationship progression. A customer who keeps returning should feel different from somebody who has just discovered the shop.</p>
+<p>Loyalty levels and relationship bonuses are part of that direction. The relationship system has been drafted in code, although I am not calling it fully tested until it has actually been run through the game.</p>
+<h4>Characters Need More Than Names</h4>
+<p>The next creative challenge is giving these regulars personality. What do they collect? What makes them peculiar? Why do they keep coming back? What do they know about the world that the player might discover over time?</p>
+<p>Those questions matter because the emporium should feel like a place in a community, not a vending machine with a fantasy font.</p>
+<h4>The Workshop Keeps Changing</h4>
+<p>The game has grown from a small crafting experiment into a shop with an economy, progression, discoveries, and the beginnings of relationships. There is plenty left to build, and some systems still need testing and refinement.</p>
+<p>But I can see the shape of the experience now. A curious goblin, a peculiar shop, and a world full of people who might just need something wonderfully strange.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-006">
+<div class="date">Ledger Entry No. 006 · Experimentation and Discovery</div>
+<h3>Curiosity Shouldn’t Cost a Fortune</h3>
+<p>Here is a problem I did not fully appreciate until I was actually playing: a discovery system can be completely functional and still punish the very behavior it is supposed to encourage.</p>
+<p>We introduced experimental crafting so players could combine materials and discover new inventions. The idea was delightful. The early experience? A lot of failures and not nearly enough recovery.</p>
+<h4>That Is Not the Kind of Mystery I Want</h4>
+<p>I do not want a player to feel foolish for trying something. The whole point of this little world is curiosity, invention, and happy accidents. If experimentation repeatedly empties your supplies without giving you useful information, eventually you stop experimenting.</p>
+<p>So I pushed for a more forgiving system. Failed attempts should return most of the ingredients, and hints should help point players toward possibilities without simply handing them every answer.</p>
+<h4>A Clue Is Better Than a Wall</h4>
+<p>The design shifted toward a discovery journal, clues, and gentler consequences. That preserves the satisfaction of figuring something out while respecting the player’s time.</p>
+<p>There is a difference between challenge and annoyance. I am interested in the former. The latter can take its little bag of gears and go home.</p>
+<p>This was an important reminder that testing is not just checking whether the code runs. It is noticing when the experience feels wrong and being willing to change the rules.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-005">
+<div class="date">Ledger Entry No. 005 · Quality of Life and Progression</div>
+<h3>The Goblin Needs a Bigger Workshop</h3>
+<p>I love a good crafting loop. I do not love clicking the same button fifteen times because I want fifteen of something.</p>
+<p>Once the basics worked, the next round of development was about making the shop less fussy to use. Buying materials in batches. Crafting more than one item. Moving several things to a display. Selling inventory without turning it into an endurance event.</p>
+<h4>Less Clicking, More Playing</h4>
+<p>Bulk actions sound like a tiny convenience until you realize how often players repeat the same task. Making a system technically possible is one thing. Making it pleasant enough to use over and over is another.</p>
+<p>I wanted the player to spend their attention deciding what to make and sell, not wrestling with the interface to do it.</p>
+<h4>A Shop That Grows</h4>
+<p>We also started adding progression. Shop upgrades, achievements, and rewards gave all those ordinary transactions somewhere to lead. A larger display creates more possibilities. Better supplier connections and a stronger reputation make the shop feel like it is changing over time.</p>
+<p>A little bonus surprise during crafting adds another reason to smile. Not every reward needs to be a dramatic fireworks display. Sometimes the goblin makes an extra trinket, and that is enough.</p>
+<h4>The Real Design Question</h4>
+<p>I keep coming back to the same principle: if a feature adds friction without adding meaningful choice, why is it there? Progression should create possibilities. Repetition should feel satisfying, not compulsory.</p>
+<p>The workshop is getting bigger. Thankfully, the goblin has not asked me to file a zoning permit.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-004">
+<div class="date">Ledger Entry No. 004 · The Shop Gets Serious</div>
+<h3>Wait, We Have an Economy Now?</h3>
+<p>One day you are making copper trinkets at a workbench. The next, you are looking at a daily financial ledger and wondering when your imaginary goblin became a small-business owner.</p>
+<p>The shop started developing a rhythm: buy materials, make things, sell them, fill requests, arrange the displays, and close out the day. Every action had consequences somewhere else in the system. Which is exactly the point.</p>
+<h4>More Than a Coin Counter</h4>
+<p>Selling an item is easy to describe. But what about the ingredients that went into it? What about a commission reward, the cost of restocking, or the money spent on an upgrade? A shop that only celebrates money coming in is not telling the whole story.</p>
+<p>So the daily ledger began tracking income and expenses separately. Sales, commissions, rewards, supplies, upgrades, and the resulting net change. The numbers became a way to understand what actually happened during a shop day.</p>
+<h4>Closing Time</h4>
+<p>The end-of-day process also became more meaningful. Merchandise on display could sell overnight, commissions refreshed, and the next day opened with new work to do. It gave the game a cadence rather than a collection of unrelated menus.</p>
+<p>This is one of my favorite kinds of building: watching separate mechanics become a system that feels like it has its own internal logic. The goblin is not just making things anymore. She is running an emporium.</p>
+<p>And yes, I am fully aware that I have somehow given myself another business to manage. This one just happens to accept imaginary coins.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-003">
+<div class="date">Ledger Entry No. 003 · Interface Adventures</div>
+<h3>The Rectangle That Ate a Day</h3>
+<p>Somewhere between “I have a playable shop” and “I want it to look like an actual shop,” I met a rectangle. A very stubborn rectangle.</p>
+<p>Game engines are wonderful at reminding you that knowing how to build software does not automatically mean knowing where every control, container, and anchor is hiding. Godot and I had some conversations. Several of them were not polite.</p>
+<h4>The Difference Between Working and Usable</h4>
+<p>The workbench worked. The shop systems worked. But a working button is not particularly helpful when a panel is covering it. At one point the day and coin display overlapped the workbench controls. The interface was doing its best impression of a crowded junk drawer.</p>
+<p>The fix was not some grand breakthrough. It was figuring out which controls were occupying the same space and moving them into a layout that made sense. That is how much of development goes: a very specific problem, a very specific solution, and an unreasonable amount of time spent getting there.</p>
+<h4>My Kind of Workflow</h4>
+<p>I also learned something about how I want to work on this game. I would rather make intentional changes in code than spend my days hunting through panels and clicking around an editor. Give me the full file, let me see what changed, and let me test the actual result.</p>
+<p>There is a lesson here about systems design, too. A feature is not finished just because its logic is correct. If people cannot see it, understand it, or use it without fighting the interface, the work is not finished.</p>
+<p>The rectangle did not win. But I suspect it has relatives.</p>
+<div class="entry-signoff"><p><em>Signed,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div>
+</article>
+
+<article class="notebook" id="entry-002"><div class="date">Ledger Entry No. 002 · The First Playable Shop</div><h3>From Idea to Actual Game</h3><p>There is a very specific moment when an idea stops being something you’re thinking about and starts becoming something you’re actually building.</p><p>And apparently, that’s when the trouble starts.</p><p>When I started exploring game development, I wasn’t starting from zero. I’ve spent years designing systems, developing software, building workflows, and figuring out how to make complicated things behave.</p><p>But building a game introduces a whole new collection of problems.</p><p>Because now the system doesn’t just have to work.</p><p>It has to be fun.</p><h4>Enter the Copper Goblin</h4><p>One of the first projects taking shape in the Oddly Wired workshop is Copper Goblin Emporium, a cozy fantasy crafting and shopkeeping game.</p><p>The idea is simple enough on the surface. You’re running a shop, working with materials, discovering recipes, making things, and dealing with customers.</p><p>Simple, right?</p><p>Ha.</p><p>Every seemingly tiny feature turns into a collection of decisions.</p><p>What happens when a player combines two materials? How do they discover something new? What makes an item valuable? How does the shop change as they progress?</p><p>And perhaps most importantly, how do you make all those systems feel like they’re part of one living, slightly ridiculous little world?</p><h4>The Systems Thinker Meets the Game Designer</h4><p>This is where things get interesting for me.</p><p>I’m used to building systems that solve problems. In game development, I’m building systems that create interesting problems for someone else to solve.</p><p>The same skills apply. Logic, architecture, user experience, interactions, and feedback loops.</p><p>But the goal changes.</p><p>A perfectly efficient business process is usually a good thing.</p><p>A perfectly efficient game might be boring as hell.</p><p>Sometimes you want the player to experiment. Sometimes you want them to make a questionable decision and discover something unexpected.</p><p>And sometimes you want a tiny fictional customer to have an unreasonable opinion about an item they specifically asked you to make.</p><p>Because apparently that’s entertainment now.</p><h4>So, Is It a Game Yet?</h4><p>It’s becoming one.</p><p>The workshop is moving beyond ideas and into actual systems, interfaces, and gameplay decisions.</p><p>There’s still plenty to build, plenty to test, and undoubtedly plenty of opportunities for something completely ordinary to behave like it was personally offended by my existence.</p><p>But that’s part of the process.</p><p>The Copper Goblin has officially entered the workshop.</p><p>And I suspect it’s going to be trouble.</p><div class="entry-signoff"><p><em>Filed from the workbench,</em></p><p><strong>The Head Goblin in Charge ⚙️</strong></p></div></article>
+
+<article class="notebook" id="entry-001">
+<div class="date">
             Ledger Entry No. 001 · The Beginning
           </div>
-          <h3>So, Apparently We're Making Games Now</h3>
-
-          <p>
+<h3>So, Apparently We're Making Games Now</h3>
+<p>
             There comes a point when you look at all the things
             you've learned to build and think,
             <em>Okay, but what if I made something just because
             it would be fun?</em>
-          </p>
-
-          <p>And that's how we ended up here.</p>
-
-          <p>
+</p>
+<p>And that's how we ended up here.</p>
+<p>
             Welcome to <strong>The Oddity Ledger</strong>,
             the official record of experiments, discoveries,
             questionable decisions, and occasional moments of
             brilliance happening behind the doors of Oddly
             Wired Studio.
           </p>
-
-          <p>
+<p>
             I'm a systems thinker and a builder. My world has
             long revolved around understanding how things work,
             figuring out why they don't, and creating something
@@ -392,60 +571,46 @@ footer {
             I'll probably start mentally taking it apart before
             you've finished explaining it.
           </p>
-
-          <p>But games?</p>
-
-          <p>
+<p>But games?</p>
+<p>
             Games introduce a whole different kind of challenge.
           </p>
-
-          <p>
+<p>
             It's not enough for something to work. It needs to
             <em>feel</em> right. It needs to be interesting.
             It needs to make somebody want to keep clicking,
             exploring, experimenting, or trying just one
             more time.
           </p>
-
-          <p>And I find that fascinating.</p>
-
-          <h4>Same Brain. Different Playground.</h4>
-
-          <p>
+<p>And I find that fascinating.</p>
+<h4>Same Brain. Different Playground.</h4>
+<p>
             One of the things I'm discovering is how much
             game development overlaps with the work I've
             already been doing.
           </p>
-
-          <p>
+<p>
             Systems. Logic. Interactions. Feedback loops.
             User experience. Problem solving.
           </p>
-
-          <p>All familiar territory.</p>
-
-          <p>
+<p>All familiar territory.</p>
+<p>
             Except now those systems might determine whether
             a player discovers something delightful instead
             of whether a business process runs efficiently.
           </p>
-
-          <p>
+<p>
             And sometimes the most technically correct
             solution isn't the most entertaining one.
           </p>
-
-          <p>That's a fun problem to have.</p>
-
-          <h4>What's Going in This Ledger?</h4>
-
-          <p>
+<p>That's a fun problem to have.</p>
+<h4>What's Going in This Ledger?</h4>
+<p>
             I want this to be an actual record of the process,
             not a carefully polished collection of victories
             after everything has already worked out.
           </p>
-
-          <p>
+<p>
             There will be experiments that succeed, ideas
             that change halfway through, lessons I didn't
             know I needed, and probably a fair amount of
@@ -453,108 +618,192 @@ footer {
             that worked perfectly five minutes ago has
             suddenly developed an attitude.
           </p>
-
-          <p>
+<p>
             I'll talk about what I'm learning, how I'm thinking
             through problems, and the creative decisions
             that shape the work.
           </p>
-
-          <p>
+<p>
             Some things will stay behind the workshop doors
             until they're ready. Not every invention needs
             an audience while it's still held together with
             digital duct tape and optimism.
           </p>
-
-          <p>
+<p>
             But the journey? There's plenty worth sharing.
           </p>
-
-          <h4>Consider This the First Page</h4>
-
-          <p>
+<h4>Consider This the First Page</h4>
+<p>
             Oddly Wired Studio is a place for curiosity,
             creativity, and building things that don't
             necessarily fit neatly into a box.
           </p>
-
-          <p>
+<p>
             The Oddity Ledger is where I'll document
             what happens along the way.
           </p>
-
-          <p>
+<p>
             I don't know exactly what every page
             will contain yet.
           </p>
-
-          <p>I do know there will be tinkering.</p>
-
-          <p>There will be learning.</p>
-
-          <p>
+<p>I do know there will be tinkering.</p>
+<p>There will be learning.</p>
+<p>
             There will almost certainly be shenanigans.
           </p>
+<p>And if something gets a little weird?</p>
+<p>Well, look at the name on the door.</p>
+<div class="entry-signoff">
+<p><em>Signed,</em></p>
+<p><strong>The Head Goblin in Charge ⚙️</strong></p>
+</div>
+</article>
 
-          <p>And if something gets a little weird?</p>
-
-          <p>Well, look at the name on the door.</p>
-
-          <div class="entry-signoff">
-            <p><em>Signed,</em></p>
-            <p><strong>The Head Goblin in Charge ⚙️</strong></p>
-          </div>
-        </article>
-
-        <!-- ORIGINAL ANNOUNCEMENT PRESERVED -->
-        <article class="notebook" id="opening-announcement">
-          <div class="date">
+<article class="notebook" id="opening-announcement">
+<div class="date">
             Workshop bulletin · Ledger opening
           </div>
-          <h3>The Ink Is Still Drying</h3>
-          <p class="announcement-text">
-            The Oddity Ledger is ready, but the first entry
-            hasn't been published yet. Soon this space
-            will hold real notes on the messy, fascinating
-            process of learning to build games.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-    <aside class="aside">
-      <span class="stamp">Workshop Notes</span>
-      <h2>What's going on in here?</h2>
-      <p>
+<h3>The Ink Is Still Drying</h3>
+<p class="announcement-text">The ink has dried, the first entries are in, and the workshop is officially documenting its experiments, detours, discoveries, and occasional spectacular messes.</p>
+</article>
+</div>
+</section>
+<aside class="aside">
+<span class="stamp">Workshop Notes</span>
+<h2>What's going on in here?</h2>
+<p>
         I've spent years building systems and software.
         Now I'm exploring what happens when those
         systems need to be fun, too.
       </p>
-      <p>
+<p>
         I'll share lessons, experiments, and the occasional
         spectacular detour. The unreleased projects and
         secret ingredients stay behind the workshop doors.
       </p>
-    </aside>
-  </div>
-
-  <section class="bottom">
-    <p>
+</aside>
+</div>
+<section class="bottom">
+<p>
       ⚙️ The workshop never really closes.
       <a href="/">Back to Oddly Wired Studio</a>
-    </p>
-  </section>
+</p>
+</section>
 </main>
-
 <footer>
-  &copy; <span id="year">2026</span>
+  © <span id="year">2026</span>
   Oddly Wired Studio. Made with curiosity.
 </footer>
 <script>
   document.getElementById("year").textContent =
     new Date().getFullYear();
+</script>
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('edit') !== '1') return;
+  const panel = document.getElementById('ledger-editor');
+  panel.hidden = false;
+  const title = document.getElementById('ledger-title');
+  const date = document.getElementById('ledger-date');
+  const body = document.getElementById('ledger-body');
+  const message = document.getElementById('ledger-message');
+  const entries = document.querySelector('.entries');
+  const draftKey = 'oddity-ledger-entry-draft-v1';
+  let preview = null;
+
+  try {
+    const draft = JSON.parse(localStorage.getItem(draftKey) || '{}');
+    title.value = draft.title || '';
+    date.value = draft.date || '';
+    body.value = draft.body || '';
+  } catch (_) { /* Local drafts are optional. */ }
+
+  function saveDraft() {
+    try { localStorage.setItem(draftKey, JSON.stringify({title:title.value,date:date.value,body:body.value})); } catch (_) {}
+  }
+  [title,date,body].forEach(el => el.addEventListener('input', saveDraft));
+
+  function nextEntryNumber() {
+    const numbers = [...entries.querySelectorAll('[id^="entry-"]')]
+      .map(el => Number(el.id.slice(6))).filter(Number.isInteger);
+    return Math.max(0, ...numbers) + 1;
+  }
+
+  function makeEntry() {
+    if (!title.value.trim() || !body.value.trim()) {
+      message.textContent = 'Enter a title and entry text first.';
+      return null;
+    }
+    const number = nextEntryNumber();
+    const article = document.createElement('article');
+    article.className = 'notebook';
+    article.id = 'entry-' + String(number).padStart(3,'0');
+    const meta = document.createElement('div');
+    meta.className = 'date';
+    meta.textContent = 'Ledger Entry No. ' + String(number).padStart(3,'0') + (date.value.trim() ? ' · ' + date.value.trim() : '');
+    article.append(meta);
+    const heading = document.createElement('h3');
+    heading.textContent = title.value.trim();
+    article.append(heading);
+    const blocks = body.value.trim().split(/\n\s*\n/);
+    blocks.forEach(block => {
+      const lines = block.trim().split('\n');
+      const isHeading = lines.length === 1 && /^##\s+/.test(lines[0]);
+      const el = document.createElement(isHeading ? 'h4' : 'p');
+      el.textContent = isHeading ? lines[0].replace(/^##\s+/, '') : lines.join(' ');
+      article.append(el);
+    });
+    const signoff = document.createElement('div');
+    signoff.className = 'entry-signoff';
+    const signed = document.createElement('p');
+    const italic = document.createElement('em');
+    italic.textContent = 'Signed,';
+    signed.append(italic);
+    const name = document.createElement('p');
+    const strong = document.createElement('strong');
+    strong.textContent = 'The Head Goblin in Charge ⚙️';
+    name.append(strong);
+    signoff.append(signed,name);
+    article.append(signoff);
+    return article;
+  }
+
+  document.getElementById('ledger-preview').addEventListener('click', () => {
+    const article = makeEntry();
+    if (!article) return;
+    if (preview) preview.remove();
+    preview = article;
+    preview.id = 'entry-preview';
+    entries.prepend(preview);
+    message.textContent = 'Preview is at the top of Latest Entries. It is not published yet.';
+    preview.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  document.getElementById('ledger-export').addEventListener('click', () => {
+    if (preview) { preview.remove(); preview = null; }
+    const article = makeEntry();
+    if (!article) return;
+    const clone = document.documentElement.cloneNode(true);
+    const clonedPanel = clone.querySelector('#ledger-editor');
+    clonedPanel.hidden = true;
+    clonedPanel.querySelector('#ledger-title').value = '';
+    clonedPanel.querySelector('#ledger-date').value = '';
+    clonedPanel.querySelector('#ledger-body').value = '';
+    clonedPanel.querySelector('#ledger-message').textContent = '';
+    clone.querySelector('.entries').prepend(article.cloneNode(true));
+    const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    const url = URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'index.html';
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    message.textContent = 'Updated index.html downloaded. Replace your journal index.html with it and push to GitHub to publish.';
+  });
+})();
 </script>
 </body>
 </html>
